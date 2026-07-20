@@ -127,12 +127,9 @@ if (resumeModal && resumeFrame && resumeFallback) {
     resumeModal.classList.add("open");
     resumeModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    // Show the PDF straight away (optimistic), then only fall back if it's
-    // genuinely missing. This avoids flaky HEAD checks hiding a valid file.
+    // Always render the PDF. It's shipped at assets/resume.pdf, so there's no
+    // need for a fragile existence check that can misfire in some browsers.
     showFrame();
-    fetch(RESUME_PATH, { method: "GET", cache: "no-store" })
-      .then((res) => { if (!res.ok) showFallback(); })
-      .catch(() => { /* file:// or offline: keep the frame loaded */ });
   };
 
   const closeResume = () => {
