@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Dog Bite Incident Prediction — machine learning for Big Data on 11,688 NYC DOHMH records, feature engineering, Random Forest, and public-health insight by Vickram Madhavan." />
+  <meta name="keywords" content="Machine Learning, Big Data, Random Forest, Classification, Feature Engineering, Public Health, Data Analysis, Python, Predictive Modelling" />
+  <title>Dog Bite Incident Prediction — Vickram Madhavan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="accent-indigo">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html#home" class="nav__logo">
+        <span class="nav__logo-mark">&lt;/&gt;</span>
+        <span class="nav__logo-text">Vickram Madhavan</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-banner" data-cursor-bubble="11,688 records — curious what he found? 📊">
+      <div class="container">
+        <a href="../index.html#projects" class="page-banner__back reveal">← Back to projects</a>
+        <div class="page-banner__meta reveal">
+          <span>Domain: <b>Public Health</b></span>
+          <span>Type: <b>ML for Big Data</b></span>
+          <span>Timeline: <b>Aug – Sep 2025</b></span>
+        </div>
+        <h1 class="reveal">Predicting Dog-Bite Incidents with Machine Learning for Big Data</h1>
+        <p class="page-banner__lead reveal">
+          Turning <strong>11,688 real NYC health records</strong> into a predictive model that
+          helps public-health teams anticipate <em>when</em> and <em>where</em> bite incidents
+          are most likely — so resources can be planned proactively, not reactively.
+        </p>
+        <div class="kw-pills reveal">
+          <span>Big Data</span><span>Random Forest</span><span>Feature Engineering</span>
+          <span>Classification</span><span>Public Health</span><span>Python</span>
+          <span>Data Visualization</span><span>Model Comparison</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case">
+      <div class="container case__grid">
+        <div class="case__body">
+          <h2 class="reveal">The problem</h2>
+          <p class="reveal">
+            Dog bites are a genuine public-health cost — emergency visits, follow-ups, and
+            preventable harm. New York City's DOHMH publishes years of incident data, but a
+            spreadsheet with tens of thousands of rows doesn't help a planner decide where to
+            focus. The question I set out to answer: <strong>can we predict bite frequency</strong>
+            well enough to support smarter resource allocation?
+          </p>
+
+          <h2 class="reveal">My approach</h2>
+          <p class="reveal">
+            I worked with the full dataset of <strong>11,688 DOHMH dog-bite records</strong>,
+            starting with the unglamorous-but-essential work of cleaning and structuring the
+            data. From there I focused on <strong>feature engineering</strong>:
+          </p>
+          <ul class="case__points">
+            <li class="reveal"><strong>Temporal features</strong> — extracting seasonality and time-of-year patterns from incident dates.</li>
+            <li class="reveal"><strong>Demographic and location signals</strong> — encoding the contextual factors around each report.</li>
+            <li class="reveal">Handling missing and inconsistent entries so the models trained on trustworthy inputs.</li>
+          </ul>
+          <p class="reveal">
+            I then built and <strong>evaluated four machine-learning models</strong> head-to-head,
+            comparing them on predictive accuracy rather than betting on a single algorithm.
+          </p>
+
+          <h2 class="reveal">What I found</h2>
+          <p class="reveal">
+            <strong>Random Forest</strong> came out on top, delivering the highest accuracy for
+            predicting bite frequency. Its ensemble nature handled the mix of engineered temporal
+            and demographic features gracefully. I paired the model with clear
+            <strong>visualisations</strong> that surfaced the patterns behind the predictions —
+            the part that actually lets a public-health team act.
+          </p>
+
+          <h2 class="reveal">Why it matters</h2>
+          <p class="reveal">
+            The output isn't just a metric; it's <strong>decision support</strong>. Anticipating
+            higher-risk periods means outreach, education, and resources can be scheduled ahead
+            of time. This project sharpened my instinct for connecting a model back to the
+            real-world action it's meant to inform.
+          </p>
+        </div>
+
+        <aside class="case__aside">
+          <div class="case__panel reveal">
+            <h3>Headline Result</h3>
+            <div class="case__result">
+              <span class="case__result-num">11,688</span>
+              <span class="case__result-label">records processed &amp; analysed</span>
+            </div>
+            <div class="case__result">
+              <span class="case__result-num">4</span>
+              <span class="case__result-label">ML models evaluated</span>
+            </div>
+            <div class="case__result">
+              <span class="case__result-num">#1</span>
+              <span class="case__result-label">Random Forest — best accuracy</span>
+            </div>
+          </div>
+          <div class="case__panel reveal">
+            <h3>Tech Stack</h3>
+            <div class="tags">
+              <span>Python</span><span>scikit-learn</span><span>Pandas</span>
+              <span>NumPy</span><span>Matplotlib</span><span>Seaborn</span>
+            </div>
+          </div>
+          <div class="case__panel reveal">
+            <h3>My Role</h3>
+            <div class="tags">
+              <span>Data Cleaning</span><span>Feature Engineering</span>
+              <span>Model Building</span><span>Visualization</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container">
+        <div class="case__nav">
+          <a href="obesity-ann.html" class="btn btn--ghost btn--sm">← Previous case study</a>
+          <a href="../index.html#contact" class="btn btn--primary btn--sm">Let's talk about this <span class="btn__arrow">→</span></a>
+          <a href="supply-chain-analytics.html" class="btn btn--ghost btn--sm">Next case study <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Designed &amp; built by Vickram Madhavan</p>
+      <p class="footer__small">© <span id="year"></span> · Case study</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

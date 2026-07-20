@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Vickram Madhavan — MSc Computer Science student at Coventry University specializing in Big Data analysis, machine learning, and data visualization." />
+  <title>Vickram Madhavan — MSc Computer Science | Big Data &amp; ML</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo">
+        <span class="nav__logo-mark">&lt;/&gt;</span>
+        <span class="nav__logo-text">Vickram Madhavan</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="nav__resume js-resume-open" id="resumeBtn">Resume</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <p class="hero__greeting reveal">Hi, my name is</p>
+        <h1 class="hero__name reveal">Vickram Madhavan.</h1>
+        <h2 class="hero__tagline reveal">I turn complex data into insight.</h2>
+        <p class="hero__desc reveal">
+          I'm an <strong>MSc Computer Science</strong> student at Coventry University,
+          specializing in <strong>Big Data analysis</strong>, machine learning, and
+          data visualization &amp; forecasting. I love transforming messy, real-world
+          data into clear, actionable decisions.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary">View My Work</a>
+          <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+        </div>
+        <div class="hero__socials reveal">
+          <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a href="mailto:vickrammadhavan2002@gmail.com" aria-label="Email">Email</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Keyword banner -->
+    <div class="kw-banner" aria-hidden="true">
+      <div class="kw-track">
+        <span>Machine Learning<span>Big Data</span>Neural Networks<span>Python</span>Predictive Analytics<span>Power BI</span>Data Visualization<span>Forecasting</span>Feature Engineering<span>Deep Learning</span>Data Storytelling<span>SQL</span></span>
+        <span>Machine Learning<span>Big Data</span>Neural Networks<span>Python</span>Predictive Analytics<span>Power BI</span>Data Visualization<span>Forecasting</span>Feature Engineering<span>Deep Learning</span>Data Storytelling<span>SQL</span></span>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="section" id="about" data-cursor-bubble="Want to get to know Vickram? 👋">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Who I Am · Data Scientist in the Making</span>
+          <h2 class="section__title"><span class="section__num">01.</span> About <span class="grad-word">Me</span></h2>
+        </div>
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              I'm Vickram — a data person at heart. What started as curiosity about
+              <em>why</em> the numbers behave the way they do turned into an
+              <strong>MSc in Computer Science</strong> at <strong>Coventry University</strong>,
+              where I now live at the intersection of <strong>Big Data analytics</strong>,
+              <strong>machine learning</strong>, and clear, honest storytelling with data.
+            </p>
+            <p>
+              I earned my <strong>B.Tech</strong> at SRM Institute of Science &amp; Technology
+              in Chennai, then packed my bags for the UK to go deeper. These days I'm most at
+              home writing <strong>Python</strong>, wrangling messy datasets through
+              <strong>cleaning and feature engineering</strong>, training and tuning
+              <strong>neural networks (ANN)</strong> and ensemble models like
+              <strong>Random Forest</strong>, and then turning the results into
+              <strong>Power BI dashboards</strong> and <strong>forecasts</strong> that a
+              non-technical stakeholder can actually act on.
+            </p>
+            <p>
+              Here's the thing that makes me a little different: before I fell for data, I ran
+              <strong>business operations</strong> and led finance teams. So I don't just chase
+              accuracy scores — I care about the decision on the other side of the model. I like
+              building things that move a real metric, not just a confusion matrix.
+            </p>
+            <p>Technologies &amp; areas I work with day to day:</p>
+            <ul class="about__list">
+              <li>Python</li>
+              <li>Machine Learning</li>
+              <li>Neural Networks (ANN)</li>
+              <li>Big Data</li>
+              <li>Power BI</li>
+              <li>Data Visualization</li>
+            </ul>
+            <div class="hero__cta">
+              <a href="#" class="btn btn--primary btn--sm js-resume-open">View my résumé <span class="btn__arrow">→</span></a>
+              <a href="#projects" class="btn btn--ghost btn--sm">See my work <span class="btn__arrow">→</span></a>
+            </div>
+          </div>
+          <div class="about__card reveal">
+            <div class="about__avatar">VM</div>
+            <div class="about__stats">
+              <div class="stat">
+                <span class="stat__num" data-target="87">0</span>
+                <span class="stat__label">% Best Model Accuracy</span>
+              </div>
+              <div class="stat">
+                <span class="stat__num" data-target="3">0</span>
+                <span class="stat__label">Data / ML Projects</span>
+              </div>
+              <div class="stat">
+                <span class="stat__num" data-target="2">0</span>
+                <span class="stat__label">Degrees (BTech + MSc)</span>
+              </div>
+              <div class="stat">
+                <span class="stat__num" data-target="3">0</span>
+                <span class="stat__label">Professional Roles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" data-cursor-bubble="Curious about his skills? Click any one! 👀">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Toolbox · From Raw Data to Decisions</span>
+          <h2 class="section__title"><span class="section__num">02.</span> Skills &amp; <span class="grad-word">Tools</span></h2>
+          <p class="section__hint">Recruiter tip: click any <span class="tag-demo">skill</span> to see the projects where I actually used it.</p>
+        </div>
+        <div class="skills">
+          <div class="skill-card accent-teal reveal">
+            <h3>Languages &amp; Programming</h3>
+            <div class="tags">
+              <span class="tag" data-skill="python">Python</span>
+              <span class="tag" data-skill="sql">SQL</span>
+              <span class="tag" data-skill="r">R</span>
+              <span class="tag" data-skill="computer-science">Computer Science</span>
+            </div>
+          </div>
+          <div class="skill-card accent-sky reveal">
+            <h3>Machine Learning &amp; AI</h3>
+            <div class="tags">
+              <span class="tag" data-skill="deep-learning">ANN / Deep Learning</span>
+              <span class="tag" data-skill="random-forest">Random Forest</span>
+              <span class="tag" data-skill="scikit-learn">scikit-learn</span>
+              <span class="tag" data-skill="feature-engineering">Feature Engineering</span>
+              <span class="tag" data-skill="model-evaluation">Model Evaluation</span>
+            </div>
+          </div>
+          <div class="skill-card accent-indigo reveal">
+            <h3>Big Data &amp; Analytics</h3>
+            <div class="tags">
+              <span class="tag" data-skill="big-data">Big Data Analysis</span>
+              <span class="tag" data-skill="data-cleaning">Data Cleaning</span>
+              <span class="tag" data-skill="market-research">Market Research</span>
+              <span class="tag" data-skill="forecasting">Forecasting</span>
+              <span class="tag" data-skill="predictive-analytics">Predictive Analytics</span>
+            </div>
+          </div>
+          <div class="skill-card accent-purple reveal">
+            <h3>Visualization &amp; BI</h3>
+            <div class="tags">
+              <span class="tag" data-skill="power-bi">Power BI</span>
+              <span class="tag" data-skill="dashboards">Dashboards</span>
+              <span class="tag" data-skill="data-visualization">Data Visualization</span>
+              <span class="tag" data-skill="reporting">Reporting</span>
+            </div>
+          </div>
+          <div class="skill-card accent-pink reveal">
+            <h3>Business &amp; Operations</h3>
+            <div class="tags">
+              <span class="tag" data-skill="business-operations">Business Operations</span>
+              <span class="tag" data-skill="financial-management">Financial Management</span>
+              <span class="tag" data-skill="sales-strategy">Sales Strategy</span>
+              <span class="tag" data-skill="networking">Networking</span>
+            </div>
+          </div>
+          <div class="skill-card accent-amber reveal">
+            <h3>Leadership &amp; Soft Skills</h3>
+            <div class="tags">
+              <span class="tag" data-skill="leadership">Leadership</span>
+              <span class="tag" data-skill="team-collaboration">Team Collaboration</span>
+              <span class="tag" data-skill="customer-success">Customer Success</span>
+              <span class="tag" data-skill="communication">Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects" data-cursor-bubble="Fancy a peek at his case studies? 🔍">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Case Studies · Machine Learning &amp; Big Data</span>
+          <h2 class="section__title"><span class="section__num">03.</span> Featured <span class="grad-word">Projects</span></h2>
+        </div>
+        <div class="projects-filter" id="projectsFilter" hidden>
+          <span class="projects-filter__text" id="projectsFilterText"></span>
+          <button class="projects-filter__clear" id="projectsFilterClear" type="button">Clear filter ✕</button>
+        </div>
+        <div class="projects" id="projectsGrid">
+          <article class="project accent-teal reveal" data-skills="python deep-learning scikit-learn feature-engineering model-evaluation data-cleaning">
+            <div class="project__top">
+              <span class="project__folder">{ }</span>
+              <div class="project__links">
+                <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+              </div>
+            </div>
+            <h3 class="project__title">Obesity Level Classification Using ANN</h3>
+            <p class="project__desc">
+              Designed three ANN architectures (baseline, deep, and regularised) to
+              classify individuals into seven obesity categories. Applied one-hot
+              encoding, MinMax scaling, dropout, and L2 regularisation — achieving
+              <strong>87% test accuracy</strong> and analysing confusion matrices and
+              learning curves.
+            </p>
+            <ul class="project__tech">
+              <li>Python</li><li>ANN / Deep Learning</li><li>Regularisation</li><li>Nov–Dec 2025</li>
+            </ul>
+            <a href="projects/obesity-ann.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
+          </article>
+
+          <article class="project accent-indigo reveal" data-skills="python random-forest big-data feature-engineering data-cleaning predictive-analytics data-visualization">
+            <div class="project__top">
+              <span class="project__folder">{ }</span>
+              <div class="project__links">
+                <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+              </div>
+            </div>
+            <h3 class="project__title">Dog Bite Incident Prediction — ML for Big Data</h3>
+            <p class="project__desc">
+              Processed and analysed <strong>11,688 NYC DOHMH</strong> dog-bite records;
+              engineered temporal and demographic features. Built and evaluated four ML
+              models — Random Forest achieved the highest accuracy for predicting bite
+              frequency, supporting public-health risk assessment.
+            </p>
+            <ul class="project__tech">
+              <li>Python</li><li>Random Forest</li><li>Big Data</li><li>Aug–Sep 2025</li>
+            </ul>
+            <a href="projects/dog-bite-prediction.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
+          </article>
+
+          <article class="project accent-purple reveal" data-skills="power-bi predictive-analytics data-visualization dashboards forecasting sql business-operations reporting">
+            <div class="project__top">
+              <span class="project__folder">{ }</span>
+              <div class="project__links">
+                <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+              </div>
+            </div>
+            <h3 class="project__title">Supply Chain Performance &amp; Delay Risk Prediction</h3>
+            <p class="project__desc">
+              A web-based decision-support system integrated with Power BI for real-time
+              supply-chain monitoring. Predictive analytics flags potential delays before
+              they happen, with interactive dashboards enabling proactive, data-driven
+              decisions across teams.
+            </p>
+            <ul class="project__tech">
+              <li>Power BI</li><li>Predictive Analytics</li><li>Web App</li><li>Dashboards</li>
+            </ul>
+            <a href="projects/supply-chain-analytics.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
+          </article>
+
+          <article class="project accent-pink reveal" data-skills="forecasting data-visualization predictive-analytics deep-learning">
+            <div class="project__top">
+              <span class="project__folder">{ }</span>
+              <div class="project__links">
+                <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener" aria-label="LinkedIn">More</a>
+              </div>
+            </div>
+            <h3 class="project__title">More on the way</h3>
+            <p class="project__desc">
+              I'm continually building new data-science and analytics projects as part of
+              my MSc. Connect with me on LinkedIn to follow along, or check back here for
+              updates.
+            </p>
+            <ul class="project__tech">
+              <li>Machine Learning</li><li>Forecasting</li><li>Visualization</li>
+            </ul>
+            <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener" class="project__cta">Follow on LinkedIn <span class="btn__arrow">→</span></a>
+          </article>
+        </div>
+        <p class="projects-empty" id="projectsEmpty" hidden></p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" data-cursor-bubble="Care to see his journey? 🗺️">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Journey · Data, Leadership &amp; Operations</span>
+          <h2 class="section__title"><span class="section__num">04.</span> Experience &amp; <span class="grad-word">Education</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <span class="timeline__dot"></span>
+            <div class="timeline__content">
+              <span class="timeline__date">2025 — 2026 · Awarded 30 July 2026</span>
+              <h3>MSc Computer Science</h3>
+              <p class="timeline__org">Coventry University · England, UK</p>
+              <p>Specializing in data analysis and machine learning — building, evaluating and interpreting predictive models, and turning data into visualization and forecasting. Modules included Machine Learning &amp; Big Data, Artificial Neural Networks, and Web Applications &amp; AI.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <span class="timeline__dot"></span>
+            <div class="timeline__content">
+              <span class="timeline__date">Dec 2023 — Feb 2024</span>
+              <h3>Business Operations Executive</h3>
+              <p class="timeline__org">MyCaptain · Bengaluru, India</p>
+              <p>Identified and developed new business opportunities, built client relationships, and collaborated with marketing, product, and customer-success teams to deliver value-driven solutions.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <span class="timeline__dot"></span>
+            <div class="timeline__content">
+              <span class="timeline__date">Jun 2022 — Jan 2024</span>
+              <h3>Financial Center Lead</h3>
+              <p class="timeline__org">CTECH, SRM · Chennai, India</p>
+              <p>Led finance and accounting operations, managing processes and supporting financial decision-making at a managerial level.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <span class="timeline__dot"></span>
+            <div class="timeline__content">
+              <span class="timeline__date">Jun 2022 — Apr 2023</span>
+              <h3>Senior Member</h3>
+              <p class="timeline__org">E-Cell, SRMIST · Chennai, India</p>
+              <p>Contributed to entrepreneurship initiatives and events, working with cross-functional student teams.</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <span class="timeline__dot"></span>
+            <div class="timeline__content">
+              <span class="timeline__date">2020 — 2024</span>
+              <h3>B.Tech (Core)</h3>
+              <p class="timeline__org">SRM Institute of Science &amp; Technology · Chennai, India</p>
+              <p>Bachelor of Technology with a foundation in computer science and engineering fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact" data-cursor-bubble="Shall we get in touch? ✉️">
+      <div class="container contact">
+        <p class="contact__sub reveal">05. What's Next?</p>
+        <h2 class="contact__title reveal">Get In Touch</h2>
+        <p class="contact__desc reveal">
+          I'm always open to connecting about data science, machine learning, and Big Data
+          opportunities. Whether you have a question, a role in mind, or just want to say
+          hi — my inbox is open and I'll do my best to get back to you!
+        </p>
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder=" " required />
+              <label for="name">Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder=" " required />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+        <div class="contact__links reveal">
+          <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:vickrammadhavan2002@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Designed &amp; built by Vickram Madhavan</p>
+      <p class="footer__small">© <span id="year"></span> · Made with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- Resume modal -->
+  <div class="resume-modal" id="resumeModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Resume viewer">
+    <div class="resume-modal__backdrop" data-close></div>
+    <div class="resume-modal__panel">
+      <div class="resume-modal__bar">
+        <span class="resume-modal__title">Resume — Vickram Madhavan</span>
+        <div class="resume-modal__actions">
+          <a href="assets/resume.pdf" target="_blank" rel="noopener" class="resume-modal__btn">Open in new tab</a>
+          <a href="assets/resume.pdf" download class="resume-modal__btn resume-modal__btn--primary">Download</a>
+          <button class="resume-modal__close" id="resumeClose" aria-label="Close resume viewer" data-close>&times;</button>
+        </div>
+      </div>
+      <div class="resume-modal__body" id="resumeBody">
+        <iframe class="resume-modal__frame" id="resumeFrame" title="Resume PDF" src=""></iframe>
+        <div class="resume-modal__fallback" id="resumeFallback" hidden>
+          <p><strong>No resume file found yet.</strong></p>
+          <p>Add your resume as <code>assets/resume.pdf</code> in the portfolio folder, then reopen this viewer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

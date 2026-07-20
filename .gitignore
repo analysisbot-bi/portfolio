@@ -1,0 +1,16 @@
+# Private — do NOT publish (personal data)
+HEAR.pdf
+assets/Vickram_Madhavan_CV.docx
+assets/resume.txt
+
+# Leftover files from the old Batman theme (unused by the professional site)
+css/
+js/
+assets/backgrounds/
+rogues.html
+
+# Temp / editor
+_staged_*
+*.tmp
+.DS_Store
+Thumbs.db

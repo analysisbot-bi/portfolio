@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: Obesity Level Classification using Artificial Neural Networks (ANN) — deep learning, regularisation, feature engineering, and model evaluation by Vickram Madhavan." />
+  <meta name="keywords" content="Artificial Neural Networks, ANN, Deep Learning, Classification, Regularisation, Dropout, L2, Feature Engineering, Python, Machine Learning" />
+  <title>Obesity Classification with ANN — Vickram Madhavan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="accent-teal">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html#home" class="nav__logo">
+        <span class="nav__logo-mark">&lt;/&gt;</span>
+        <span class="nav__logo-text">Vickram Madhavan</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Banner header -->
+    <section class="page-banner" data-cursor-bubble="Curious how he hit 87% accuracy? 🧠">
+      <div class="container">
+        <a href="../index.html#projects" class="page-banner__back reveal">← Back to projects</a>
+        <div class="page-banner__meta reveal">
+          <span>Domain: <b>Health Analytics</b></span>
+          <span>Type: <b>Deep Learning</b></span>
+          <span>Timeline: <b>Nov – Dec 2025</b></span>
+        </div>
+        <h1 class="reveal">Obesity Level Classification Using Artificial Neural Networks</h1>
+        <p class="page-banner__lead reveal">
+          A deep-learning study that predicts a person's obesity category from lifestyle and
+          body-metric data — comparing three neural-network architectures to find the sweet
+          spot between <strong>accuracy</strong> and <strong>generalisation</strong>.
+        </p>
+        <div class="kw-pills reveal">
+          <span>ANN</span><span>Deep Learning</span><span>Multi-class Classification</span>
+          <span>Dropout</span><span>L2 Regularisation</span><span>Feature Engineering</span>
+          <span>Python</span><span>Model Evaluation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case body -->
+    <section class="case">
+      <div class="container case__grid">
+        <div class="case__body">
+          <h2 class="reveal">The problem</h2>
+          <p class="reveal">
+            Obesity is rarely about a single number — it's the product of diet, activity,
+            family history, and daily habits all tangled together. The goal here was to take
+            that messy, multi-factor picture and train a model that could reliably sort a
+            person into one of <strong>seven obesity categories</strong>, from underweight
+            through to the different classes of obesity.
+          </p>
+
+          <h2 class="reveal">My approach</h2>
+          <p class="reveal">
+            I treated this as a supervised <strong>multi-class classification</strong> problem
+            and leaned on <strong>artificial neural networks</strong>. Before any modelling, I
+            put real care into the data:
+          </p>
+          <ul class="case__points">
+            <li class="reveal"><strong>One-hot encoding</strong> for categorical lifestyle features so the network could read them cleanly.</li>
+            <li class="reveal"><strong>MinMax scaling</strong> on numeric features to keep gradients well-behaved during training.</li>
+            <li class="reveal">A careful train/test split so every accuracy number reflected genuinely unseen data.</li>
+          </ul>
+          <p class="reveal">
+            Then I built and compared <strong>three ANN architectures</strong> to understand
+            the trade-offs rather than just chasing one lucky run:
+          </p>
+          <ul class="case__points">
+            <li class="reveal"><strong>Baseline ANN</strong> — a simple network to establish an honest starting point.</li>
+            <li class="reveal"><strong>Deep ANN</strong> — more layers and capacity to capture non-linear patterns.</li>
+            <li class="reveal"><strong>Regularised ANN</strong> — the deep model plus <strong>dropout</strong> and <strong>L2 regularisation</strong> to fight overfitting.</li>
+          </ul>
+
+          <h2 class="reveal">What I found</h2>
+          <p class="reveal">
+            The regularised network was the clear winner, reaching <strong>87% test
+            accuracy</strong>. More importantly, it generalised: the gap between training and
+            validation performance stayed tight. I dug into <strong>confusion matrices</strong>
+            to see exactly which categories got confused with their neighbours, and read the
+            <strong>learning curves</strong> to confirm the model was learning signal, not noise.
+          </p>
+
+          <h2 class="reveal">What I took away</h2>
+          <p class="reveal">
+            Raw depth isn't the answer — <strong>disciplined regularisation</strong> is what
+            turned a decent model into a dependable one. Just as valuable was the habit of
+            interpreting results (confusion matrices, learning curves) instead of trusting a
+            single accuracy figure. That mindset carries into every project I build.
+          </p>
+        </div>
+
+        <aside class="case__aside">
+          <div class="case__panel reveal">
+            <h3>Headline Result</h3>
+            <div class="case__result">
+              <span class="case__result-num">87%</span>
+              <span class="case__result-label">test accuracy (regularised ANN)</span>
+            </div>
+            <div class="case__result">
+              <span class="case__result-num">7</span>
+              <span class="case__result-label">obesity categories classified</span>
+            </div>
+            <div class="case__result">
+              <span class="case__result-num">3</span>
+              <span class="case__result-label">architectures compared</span>
+            </div>
+          </div>
+          <div class="case__panel reveal">
+            <h3>Tech Stack</h3>
+            <div class="tags">
+              <span>Python</span><span>TensorFlow / Keras</span><span>scikit-learn</span>
+              <span>Pandas</span><span>NumPy</span><span>Matplotlib</span>
+            </div>
+          </div>
+          <div class="case__panel reveal">
+            <h3>My Role</h3>
+            <div class="tags">
+              <span>Data Preprocessing</span><span>Model Design</span>
+              <span>Training &amp; Tuning</span><span>Evaluation</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container">
+        <div class="case__nav">
+          <a href="../index.html#projects" class="btn btn--ghost btn--sm">← All projects</a>
+          <a href="../index.html#contact" class="btn btn--primary btn--sm">Let's talk about this <span class="btn__arrow">→</span></a>
+          <a href="dog-bite-prediction.html" class="btn btn--ghost btn--sm">Next case study <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Designed &amp; built by Vickram Madhavan</p>
+      <p class="footer__small">© <span id="year"></span> · Case study</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
