@@ -1,0 +1,13 @@
+# Netlify configuration for a static site (no build step).
+# The site is deployed straight from the repository root.
+[build]
+  publish = "."
+  command = ""
+
+# Sensible security headers for a static portfolio.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
