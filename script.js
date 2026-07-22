@@ -293,7 +293,7 @@ if (projectsGrid && skillTags.length) {
     { k: ["machine learning", "ml", "predict", "classifier", "classification", "regression", "svm", "knn"],
       a: () => `Machine learning is rather his forte. He's comfortable across <b>regression, classification, Random Forest, SVM and Artificial Neural Networks</b> — building them, evaluating them, and crucially <i>interpreting</i> them. The ${L("#projects", "case studies")} tell the tale nicely.` },
     { k: ["ann", "neural", "deep learning", "obesity", "tensorflow", "keras"],
-      a: () => `Ah, the neural networks — a personal favourite of mine. For the Obesity Classification he engineered three ANN architectures in <b>TensorFlow/Keras</b> and achieved up to <b>95% test accuracy</b> with the regularised Deep ANN. Charts, confusion matrix and the full write-up await in the ${L("projects/obesity-ann.html", "case study")}.` },
+      a: () => `Ah, the neural networks — a personal favourite of mine. For the Obesity Classification he engineered three ANN architectures in <b>TensorFlow/Keras</b> and achieved up to <b>95% test accuracy</b> with the regularised Deep ANN. Charts, confusion matrix and the full write-up await in the ${L("#projects", "Projects")} section.` },
     { k: ["random forest", "sla", "breach", "public health", "svr"],
       a: () => `Quite. Beyond ensembles like Random Forest, he's built a <b>scikit-learn SLA-breach predictor</b> so support teams can prioritise at-risk tickets the moment they arrive — do open it from the ${L("#projects", "Projects")} section.` },
     { k: ["power bi", "tableau", "dashboard", "supply chain", "visual", "bi ", "seaborn", "matplotlib", "shap", "xgboost"],
