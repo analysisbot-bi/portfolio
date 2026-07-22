@@ -1,28 +1,59 @@
 /* =========================================================
    Vickram Madhavan portfolio styles
-   Simple developer theme. Edit colors in :root below.
+   Simple developer theme with light + dark support.
+   Edit colors in :root / dark block below.
    ========================================================= */
 
-/* ----- TOKENS ----- */
+/* ----- TOKENS (light) ----- */
 :root {
-  --bg: #f4f6f8;
-  --bg-soft: #e8eef2;
+  --bg: #eef3f0;
+  --bg-soft: #e2ebe6;
   --surface: #ffffff;
   --text: #1b2330;
   --text-dim: #3d4a5c;
   --text-mute: #5c6b7a;
-  --border: #c9d4de;
+  --border: #b8c9c0;
   --link: #0b6e4f;
   --link-hover: #08553c;
   --accent: #0b6e4f;
-  --accent-soft: #d8f3e7;
+  --accent-soft: #cfeadf;
+  --accent-glow: rgba(11, 110, 79, 0.14);
   --code-bg: #1e2936;
   --code-text: #e6edf3;
+  --nav-border: #2a3848;
+  --nav-link: #b7c4d1;
+  --nav-hover: #7ddea4;
+  --nav-resume-bg: #243528;
+  --nav-resume-border: #3d5a4a;
   --max: 720px;
   --wide: 880px;
-  --serif: Georgia, "Times New Roman", Times, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Code", "Courier New", monospace;
+}
+
+/* ----- TOKENS (dark) ----- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12181f;
+    --bg-soft: #1a222c;
+    --surface: #1a2330;
+    --text: #e8eef4;
+    --text-dim: #b7c4d1;
+    --text-mute: #8a9aab;
+    --border: #2f3d4c;
+    --link: #6fdbb0;
+    --link-hover: #9aecc8;
+    --accent: #3ecf8e;
+    --accent-soft: #1a3a2e;
+    --accent-glow: rgba(62, 207, 142, 0.12);
+    --code-bg: #0d1218;
+    --code-text: #e6edf3;
+    --nav-border: #1f2a36;
+    --nav-link: #a8b6c4;
+    --nav-hover: #6fdbb0;
+    --nav-resume-bg: #163528;
+    --nav-resume-border: #2f5a45;
+  }
 }
 
 /* ----- RESET / BASE ----- */
@@ -34,7 +65,11 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 0% -10%, var(--accent-glow), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, var(--accent-glow), transparent 50%);
+  background-attachment: fixed;
   border-top: 4px solid var(--accent);
 }
 a { color: var(--link); }
@@ -62,7 +97,7 @@ h1, h2, h3 {
   top: 0;
   z-index: 50;
   background: var(--code-bg);
-  border-bottom: 1px solid #2a3848;
+  border-bottom: 1px solid var(--nav-border);
 }
 .nav__inner {
   max-width: var(--wide);
@@ -81,10 +116,10 @@ h1, h2, h3 {
   text-decoration: none;
   white-space: nowrap;
 }
-.nav__logo:hover { color: #7ddea4; text-decoration: none; }
+.nav__logo:hover { color: var(--nav-hover); text-decoration: none; }
 .nav__logo::before {
   content: "~/ ";
-  color: #7ddea4;
+  color: var(--nav-hover);
 }
 .nav__links {
   display: flex;
@@ -95,21 +130,21 @@ h1, h2, h3 {
   font-family: var(--mono);
 }
 .nav__links a {
-  color: #b7c4d1;
+  color: var(--nav-link);
   text-decoration: none;
 }
-.nav__links a:hover { color: #7ddea4; text-decoration: underline; }
+.nav__links a:hover { color: var(--nav-hover); text-decoration: underline; }
 .nav__resume {
   font-weight: 600;
-  color: #7ddea4 !important;
-  border: 1px solid #3d5a4a;
-  background: #243528;
+  color: var(--nav-hover) !important;
+  border: 1px solid var(--nav-resume-border);
+  background: var(--nav-resume-bg);
   padding: 0.2rem 0.55rem;
 }
 .nav__toggle {
   display: none;
-  background: #243040;
-  border: 1px solid #3a4a5c;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
   color: var(--code-text);
   padding: 0.35rem 0.5rem;
   cursor: pointer;
@@ -134,8 +169,7 @@ h1, h2, h3 {
 .hero {
   padding: 3.5rem 0 2.5rem;
   border-bottom: 1px solid var(--border);
-  background:
-    linear-gradient(90deg, var(--accent-soft) 0, var(--accent-soft) 6px, transparent 6px);
+  background: linear-gradient(90deg, var(--accent-soft) 0, var(--accent-soft) 6px, transparent 6px);
 }
 .hero__greeting {
   margin: 0 0 0.35rem;
@@ -155,9 +189,12 @@ h1, h2, h3 {
   color: var(--accent);
 }
 .hero__desc {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.55rem;
   color: var(--text-dim);
   max-width: 38rem;
+}
+.hero__desc:last-of-type {
+  margin-bottom: 1.25rem;
 }
 .hero__cta {
   display: flex;
@@ -383,7 +420,7 @@ h1, h2, h3 {
   font: inherit;
   padding: 0.45rem 0.55rem;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--surface);
   color: var(--text);
 }
 .form-group input:focus,
@@ -435,7 +472,7 @@ h1, h2, h3 {
   width: min(860px, 94vw);
   max-height: 90vh;
   margin: 5vh auto;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -465,14 +502,14 @@ h1, h2, h3 {
   font-size: 0.85rem;
   padding: 0.25rem 0.55rem;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--surface);
   color: var(--text);
   text-decoration: none;
 }
 .resume-modal__btn--primary {
-  background: var(--text);
+  background: var(--accent);
   color: #fff;
-  border-color: var(--text);
+  border-color: var(--accent);
 }
 .resume-modal__close {
   font: inherit;
@@ -486,7 +523,7 @@ h1, h2, h3 {
 .resume-modal__body {
   overflow: auto;
   padding: 1rem;
-  background: #e8e8e0;
+  background: var(--bg-soft);
 }
 .resume-modal__pages {
   display: flex;
@@ -497,7 +534,7 @@ h1, h2, h3 {
 .resume-modal__page {
   width: 100%;
   max-width: 700px;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
 }
 
@@ -626,7 +663,7 @@ h1, h2, h3 {
 .case-chart {
   margin: 0;
   border: 1px solid var(--border);
-  background: #fff;
+  background: var(--surface);
   padding: 0.5rem;
 }
 .case-chart img { width: 100%; }
