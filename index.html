@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body>
   <!-- Animated background -->
@@ -214,7 +214,7 @@
         <div class="section__head reveal">
           <span class="eyebrow">Aspiring Data Analyst · Selected builds</span>
           <h2 class="section__title"><span class="section__num">03.</span> Featured <span class="grad-word">Projects</span></h2>
-          <p class="section__hint">Two stories from the lab — hover to watch the charts wake up. Everything else lives on GitHub.</p>
+          <p class="section__hint">Two builds from the terminal. Clone the rest on GitHub.</p>
         </div>
         <div class="projects-filter" id="projectsFilter" hidden>
           <span class="projects-filter__text" id="projectsFilterText"></span>
@@ -223,17 +223,15 @@
         <div class="projects" id="projectsGrid">
           <article class="project accent-purple reveal" data-skills="python sql machine-learning power-bi data-visualization business-operations">
             <div class="project__banner" aria-hidden="true">
-              <svg class="project__chart" viewBox="0 0 320 90" preserveAspectRatio="none">
-                <polyline class="project__chart-line" points="0,70 40,62 80,55 120,48 160,40 200,36 240,28 280,22 320,18" />
-                <g class="project__chart-bars">
-                  <rect x="24" y="48" width="18" height="32" /><rect x="56" y="40" width="18" height="40" />
-                  <rect x="88" y="52" width="18" height="28" /><rect x="120" y="34" width="18" height="46" />
-                  <rect x="152" y="44" width="18" height="36" /><rect x="184" y="28" width="18" height="52" />
-                  <rect x="216" y="38" width="18" height="42" /><rect x="248" y="22" width="18" height="58" />
-                  <rect x="280" y="30" width="18" height="50" />
-                </g>
-              </svg>
-              <div class="project__scan"></div>
+              <div class="project__term">
+                <span class="project__dots"><i></i><i></i><i></i></span>
+                <span class="project__path">~/repos/supply--chain-dss <em>· main</em></span>
+                <span class="project__status"><b></b> running</span>
+              </div>
+              <pre class="project__code"><code><span class="c-kw">from</span> xgboost <span class="c-kw">import</span> XGBClassifier
+model.fit(X_train, y_train)
+<span class="c-out"># accuracy=0.869  auc=0.96  shap=ready</span>
+<span class="c-prompt">➜</span> deploy --target kpi-dashboard</code></pre>
             </div>
             <div class="project__body">
               <div class="project__top">
@@ -259,16 +257,15 @@
 
           <article class="project accent-teal reveal" data-skills="python machine-learning data-visualization">
             <div class="project__banner" aria-hidden="true">
-              <svg class="project__chart project__chart--bars" viewBox="0 0 320 90" preserveAspectRatio="none">
-                <polyline class="project__chart-line" points="0,58 35,50 70,54 105,42 140,36 175,30 210,34 245,22 280,18 320,14" />
-                <g class="project__chart-bars">
-                  <rect x="20" y="55" width="22" height="25" /><rect x="54" y="42" width="22" height="38" />
-                  <rect x="88" y="48" width="22" height="32" /><rect x="122" y="30" width="22" height="50" />
-                  <rect x="156" y="36" width="22" height="44" /><rect x="190" y="24" width="22" height="56" />
-                  <rect x="224" y="28" width="22" height="52" /><rect x="258" y="18" width="22" height="62" />
-                </g>
-              </svg>
-              <div class="project__scan"></div>
+              <div class="project__term">
+                <span class="project__dots"><i></i><i></i><i></i></span>
+                <span class="project__path">~/repos/obesity-ann <em>· main</em></span>
+                <span class="project__status"><b></b> trained</span>
+              </div>
+              <pre class="project__code"><code><span class="c-kw">model</span> = Sequential([Dense(128, activation=<span class="c-str">'relu'</span>), Dropout(0.3)])
+history = model.fit(X_train, y_train, epochs=<span class="c-num">80</span>)
+<span class="c-out"># test_acc ≈ 0.95  classes=7  framework=keras</span>
+<span class="c-prompt">➜</span> export charts/ --format png</code></pre>
             </div>
             <div class="project__body">
               <div class="project__top">
@@ -424,6 +421,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
