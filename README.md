@@ -1,7 +1,7 @@
 # Vickram Madhavan portfolio
 
 Simple personal site built with plain HTML, CSS, and JavaScript.
-Live: https://analysisbot-bi.github.io/portfolio/
+Live: https://vickram-madhavan.github.io/
 
 ## Files to edit
 
@@ -38,4 +38,4 @@ git commit -m "Update portfolio"
 git push origin master
 ```
 
-Pages serves from the repo root on the `master` branch.
+Pages serves from the repo root on the `master` branch of `vickram-madhavan.github.io`.

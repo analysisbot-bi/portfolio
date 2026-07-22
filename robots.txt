@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://analysisbot-bi.github.io/portfolio/sitemap.xml
+Sitemap: https://vickram-madhavan.github.io/sitemap.xml

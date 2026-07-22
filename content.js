@@ -21,7 +21,7 @@ window.SITE = {
         "Shipment delay / eligibility model with <strong>XGBoost</strong> (<strong>86.9%</strong> accuracy, ROC-AUC <strong>0.96</strong>). Added <strong>SHAP</strong> plots and a KPI dashboard so non-tech people could read the risk scores.",
       tech: "Python · XGBoost · SHAP · Power BI",
       caseUrl: "projects/supply-chain-analytics.html",
-      githubUrl: "https://github.com/analysisbot-bi/supply--chain-dss",
+      githubUrl: "https://github.com/vickram-madhavan/supply--chain-dss",
     },
     {
       title: "Obesity Level Classifier (ANN)",
@@ -30,7 +30,7 @@ window.SITE = {
         "Tried three neural nets (baseline, deep, regularised) for 7 obesity classes. Best run was about <strong>95%</strong> test accuracy after dropout + L2. Checked confusion matrices and learning curves so I wasn't just trusting one number.",
       tech: "Python · Keras · scikit-learn · Nov-Dec 2025",
       caseUrl: "projects/obesity-ann.html",
-      githubUrl: "https://github.com/analysisbot-bi/obesity-level-classification-ann",
+      githubUrl: "https://github.com/vickram-madhavan/obesity-level-classification-ann",
     },
   ],
 };
