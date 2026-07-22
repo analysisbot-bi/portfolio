@@ -173,35 +173,21 @@ if (form && status) {
 }
 
 // ===== Resume modal viewer =====
-const RESUME_PATH = "assets/resume.pdf";
+// The résumé is shown as page images (assets/resume-page-*.png) so it displays
+// reliably on every browser and device — unlike embedded PDFs, which many
+// browsers refuse to render inline. The Download / Open-in-new-tab buttons
+// still serve the real PDF.
 const resumeTriggers = document.querySelectorAll(".js-resume-open");
 const resumeModal = document.getElementById("resumeModal");
-const resumeFrame = document.getElementById("resumeFrame");
-const resumeFallback = document.getElementById("resumeFallback");
+const resumeBody = document.getElementById("resumeBody");
 
-if (resumeModal && resumeFrame && resumeFallback) {
-  const showFrame = () => {
-    resumeFallback.hidden = true;
-    if (resumeFrame.getAttribute("src") !== RESUME_PATH) {
-      resumeFrame.setAttribute("src", RESUME_PATH);
-    }
-    resumeFrame.style.display = "block";
-  };
-
-  const showFallback = () => {
-    resumeFrame.style.display = "none";
-    resumeFrame.setAttribute("src", "");
-    resumeFallback.hidden = false;
-  };
-
+if (resumeModal) {
   const openResume = (e) => {
     if (e) e.preventDefault();
     resumeModal.classList.add("open");
     resumeModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    // Always render the PDF. It's shipped at assets/resume.pdf, so there's no
-    // need for a fragile existence check that can misfire in some browsers.
-    showFrame();
+    if (resumeBody) resumeBody.scrollTop = 0;
   };
 
   const closeResume = () => {
