@@ -72,12 +72,38 @@ if (stats.length) {
   stats.forEach((s) => statObserver.observe(s));
 }
 
-// ===== Contact form (client-side validation demo) =====
+// ===== Contact form (real delivery) =====
+// Where messages go:
+const CONTACT_EMAIL = "vickrammadhavan2002@gmail.com";
+// Optional: paste a free Web3Forms access key (https://web3forms.com) to have
+// messages delivered silently to your inbox without the visitor leaving the
+// page. If left blank, the form falls back to opening the visitor's email app.
+const WEB3FORMS_ACCESS_KEY = "";
+
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
 
 if (form && status) {
-  form.addEventListener("submit", (e) => {
+  const setStatus = (msg, kind) => {
+    status.textContent = msg;
+    status.className = "form-status " + kind;
+  };
+
+  // Fallback: open the visitor's email client with the message pre-filled.
+  const sendViaMailto = (name, email, message) => {
+    const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setStatus(
+      `Thanks, ${name}! Your email app should now open with the message ready — just hit send.`,
+      "ok"
+    );
+    form.reset();
+  };
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -85,18 +111,46 @@ if (form && status) {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     if (!name || !email || !message) {
-      status.textContent = "Please fill in all fields.";
-      status.className = "form-status err";
+      setStatus("Please fill in all fields.", "err");
       return;
     }
     if (!emailOk) {
-      status.textContent = "Please enter a valid email address.";
-      status.className = "form-status err";
+      setStatus("Please enter a valid email address.", "err");
       return;
     }
-    status.textContent = `Thanks, ${name}! Your message has been captured (demo — wire up a backend or service like Formspree to send for real).`;
-    status.className = "form-status ok";
-    form.reset();
+
+    // No key configured → use the email-app fallback.
+    if (!WEB3FORMS_ACCESS_KEY) {
+      sendViaMailto(name, email, message);
+      return;
+    }
+
+    // Key configured → deliver silently via Web3Forms.
+    setStatus("Sending…", "ok");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Portfolio enquiry from ${name}`,
+          from_name: name,
+          name,
+          email,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStatus(`Thanks, ${name}! Your message has been sent — I'll be in touch soon.`, "ok");
+        form.reset();
+      } else {
+        // Delivery failed → gracefully fall back to the email app.
+        sendViaMailto(name, email, message);
+      }
+    } catch (err) {
+      sendViaMailto(name, email, message);
+    }
   });
 }
 
