@@ -75,9 +75,12 @@ if (stats.length) {
 // ===== Contact form (real delivery) =====
 // Where messages go:
 const CONTACT_EMAIL = "vickrammadhavan2002@gmail.com";
-// Optional: paste a free Web3Forms access key (https://web3forms.com) to have
-// messages delivered silently to your inbox without the visitor leaving the
-// page. If left blank, the form falls back to opening the visitor's email app.
+// Messages send in the background (no page redirect):
+//  - If left blank, delivery uses FormSubmit (no signup; requires a one-time
+//    email confirmation the first time a message is sent).
+//  - Optionally paste a Web3Forms access key (https://web3forms.com) to use
+//    that instead. Either way, if delivery fails the form falls back to
+//    opening the visitor's email app.
 const WEB3FORMS_ACCESS_KEY = "";
 
 const form = document.getElementById("contactForm");
@@ -119,36 +122,50 @@ if (form && status) {
       return;
     }
 
-    // No key configured → use the email-app fallback.
-    if (!WEB3FORMS_ACCESS_KEY) {
-      sendViaMailto(name, email, message);
-      return;
-    }
-
-    // Key configured → deliver silently via Web3Forms.
+    // Deliver in the background so the visitor never leaves the page.
     setStatus("Sending…", "ok");
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Portfolio enquiry from ${name}`,
-          from_name: name,
-          name,
-          email,
-          message,
-        }),
-      });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setStatus(`Thanks, ${name}! Your message has been sent — I'll be in touch soon.`, "ok");
-        form.reset();
+      let res, data;
+      if (WEB3FORMS_ACCESS_KEY) {
+        // Preferred: Web3Forms (if a key is configured).
+        res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `Portfolio enquiry from ${name}`,
+            from_name: name,
+            name,
+            email,
+            message,
+          }),
+        });
+        data = await res.json();
+        if (!(res.ok && data.success)) throw new Error("web3forms failed");
       } else {
-        // Delivery failed → gracefully fall back to the email app.
-        sendViaMailto(name, email, message);
+        // No key needed: FormSubmit delivers straight to the inbox.
+        res = await fetch(
+          `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              message,
+              _subject: `Portfolio enquiry from ${name}`,
+              _template: "table",
+            }),
+          }
+        );
+        data = await res.json();
+        const ok = data && (data.success === true || data.success === "true");
+        if (!(res.ok && ok)) throw new Error("formsubmit failed");
       }
+      setStatus(`Thanks, ${name}! Your message has been sent — I'll be in touch soon.`, "ok");
+      form.reset();
     } catch (err) {
+      // Any delivery failure → fall back to the visitor's email app.
       sendViaMailto(name, email, message);
     }
   });
