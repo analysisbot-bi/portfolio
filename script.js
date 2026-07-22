@@ -325,7 +325,7 @@ if (projectsGrid && skillTags.length) {
     { k: ["project", "work you", "portfolio", "built", "case study", "case studies"],
       a: () => `Two featured case studies: a <b>supply-chain DSS</b> (XGBoost + SHAP, 86.9% accuracy) and an <b>ANN obesity classifier</b> (~95% accuracy). For further work, check his <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener">GitHub</a>.` },
     { k: ["experience", "job", "career", "worked", "operations", "mycaptain", "financial"],
-      a: () => `At <b>MyCaptain</b> (Business Operations Executive) he used <b>data visualisation</b> to turn ops metrics into clear reports. As <b>Financial Center Lead</b> at CTECH he ran <b>data analysis</b> on budgets and expenses to support decisions. See ${L("#experience", "Experience")}.` },
+      a: () => `At <b>MyCaptain</b> (Business Operations Executive) he worked like a junior analyst — pulling ops numbers and building <b>data visualisations</b> teams could act on. As <b>Financial Center Lead</b> at CTECH he ran <b>data analysis</b> on budgets and expenses to spot trends and support decisions. Full story in ${L("#experience", "Experience")}.` },
     { k: ["achievement", "award", "leadership", "e-summit", "iit", " e-cell", "ecell", "nss"],
       a: () => `A decorated sort: <b>Semi-finalist at E-Summit 2023, IIT Bombay</b>, Senior Marketing Member at E-Cell SRM, Financial Lead at CTech Association, and an NSS community volunteer. Leadership runs through it.` },
     { k: ["education", "study", "studies", "degree", "university", "coventry", "srm", "msc", "btech", "cgpa", "grade"],
