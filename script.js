@@ -217,7 +217,7 @@ if (resumeModal) {
 
 // ===== Skill -> Projects filter =====
 const projectsGrid = document.getElementById("projectsGrid");
-const skillTags = document.querySelectorAll(".tags .tag[data-skill]");
+const skillTags = document.querySelectorAll(".skill-chip[data-skill], .tags .tag[data-skill]");
 
 if (projectsGrid && skillTags.length) {
   const filterBar = document.getElementById("projectsFilter");
@@ -555,7 +555,7 @@ if (projectsGrid && skillTags.length) {
   else ring.style.transform = `translate(${mx}px, ${my}px)`;
 
   // Hover state over interactive elements
-  const interactive = 'a, button, .tag, .chat-chip, .project, .skill-card, .stat, input, textarea, [role="button"]';
+  const interactive = 'a, button, .tag, .skill-chip, .chat-chip, .project, .skill-card, .stat, input, textarea, [role="button"]';
   document.addEventListener("mouseover", (e) => {
     if (e.target.closest(interactive)) ring.classList.add("is-hover");
   });

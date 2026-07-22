@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
   <!-- Animated background -->
@@ -81,13 +81,12 @@
       <div class="container hero__inner">
         <p class="hero__greeting reveal">Hi, my name is</p>
         <h1 class="hero__name reveal">Vickram Madhavan.</h1>
-        <h2 class="hero__tagline reveal">Data Analyst.</h2>
+        <h2 class="hero__tagline reveal">Aspiring Data Analyst.</h2>
         <p class="hero__desc reveal">
-          I'm an <strong>MSc Computer Science</strong> student at Coventry University,
-          focused on turning messy data into clear decisions with
+          Decoding signals from messy data — with
           <strong>Python, SQL, machine learning, Power BI</strong> and
-          <strong>data visualisation</strong>. I care about the insight a business can
-          actually use — not just the chart behind it.
+          <strong>data visualisation</strong>. Building toward a future where every chart
+          earns its keep.
         </p>
         <div class="hero__cta reveal">
           <a href="#projects" class="btn btn--primary">View My Work</a>
@@ -118,7 +117,7 @@
     <section class="section" id="about" data-cursor-bubble="Want to get to know Vickram? 👋">
       <div class="container">
         <div class="section__head reveal">
-          <span class="eyebrow">Who I Am · Data Analyst</span>
+          <span class="eyebrow">Who I Am · Aspiring Data Analyst</span>
           <h2 class="section__title"><span class="section__num">01.</span> About <span class="grad-word">Me</span></h2>
         </div>
         <div class="about">
@@ -194,35 +193,17 @@
     <section class="section" id="skills" data-cursor-bubble="Curious about his skills? Click any one! 👀">
       <div class="container">
         <div class="section__head reveal">
-          <span class="eyebrow">Toolbox · Focused &amp; Practical</span>
+          <span class="eyebrow">Signal stack · What I work with</span>
           <h2 class="section__title"><span class="section__num">02.</span> Skills &amp; <span class="grad-word">Tools</span></h2>
-          <p class="section__hint">Click any <span class="tag-demo">skill</span> to highlight the projects where I used it.</p>
+          <p class="section__hint">Tap a skill to light up the projects where it shows up.</p>
         </div>
-        <div class="skills skills--compact">
-          <div class="skill-card accent-teal reveal">
-            <h3>Python</h3>
-            <div class="tags"><span class="tag" data-skill="python">Python</span></div>
-          </div>
-          <div class="skill-card accent-sky reveal">
-            <h3>SQL</h3>
-            <div class="tags"><span class="tag" data-skill="sql">SQL</span></div>
-          </div>
-          <div class="skill-card accent-indigo reveal">
-            <h3>Machine Learning</h3>
-            <div class="tags"><span class="tag" data-skill="machine-learning">Machine Learning</span></div>
-          </div>
-          <div class="skill-card accent-purple reveal">
-            <h3>Power BI</h3>
-            <div class="tags"><span class="tag" data-skill="power-bi">Power BI</span></div>
-          </div>
-          <div class="skill-card accent-pink reveal">
-            <h3>Data Visualisation</h3>
-            <div class="tags"><span class="tag" data-skill="data-visualization">Data Visualisation</span></div>
-          </div>
-          <div class="skill-card accent-amber reveal">
-            <h3>Business Operations</h3>
-            <div class="tags"><span class="tag" data-skill="business-operations">Business Operations</span></div>
-          </div>
+        <div class="skills-cloud reveal">
+          <button type="button" class="skill-chip" data-skill="python">Python</button>
+          <button type="button" class="skill-chip" data-skill="sql">SQL</button>
+          <button type="button" class="skill-chip" data-skill="machine-learning">Machine Learning</button>
+          <button type="button" class="skill-chip" data-skill="power-bi">Power BI</button>
+          <button type="button" class="skill-chip" data-skill="data-visualization">Data Visualisation</button>
+          <button type="button" class="skill-chip" data-skill="business-operations">Business Operations</button>
         </div>
       </div>
     </section>
@@ -231,9 +212,9 @@
     <section class="section" id="projects" data-cursor-bubble="Fancy a peek at his case studies? 🔍">
       <div class="container">
         <div class="section__head reveal">
-          <span class="eyebrow">Selected Case Studies</span>
+          <span class="eyebrow">Aspiring Data Analyst · Selected builds</span>
           <h2 class="section__title"><span class="section__num">03.</span> Featured <span class="grad-word">Projects</span></h2>
-          <p class="section__hint">Two projects I'd put in front of a hiring manager. For everything else, check GitHub.</p>
+          <p class="section__hint">Two stories from the lab — hover to watch the charts wake up. Everything else lives on GitHub.</p>
         </div>
         <div class="projects-filter" id="projectsFilter" hidden>
           <span class="projects-filter__text" id="projectsFilterText"></span>
@@ -241,46 +222,75 @@
         </div>
         <div class="projects" id="projectsGrid">
           <article class="project accent-purple reveal" data-skills="python sql machine-learning power-bi data-visualization business-operations">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
-              </div>
+            <div class="project__banner" aria-hidden="true">
+              <svg class="project__chart" viewBox="0 0 320 90" preserveAspectRatio="none">
+                <polyline class="project__chart-line" points="0,70 40,62 80,55 120,48 160,40 200,36 240,28 280,22 320,18" />
+                <g class="project__chart-bars">
+                  <rect x="24" y="48" width="18" height="32" /><rect x="56" y="40" width="18" height="40" />
+                  <rect x="88" y="52" width="18" height="28" /><rect x="120" y="34" width="18" height="46" />
+                  <rect x="152" y="44" width="18" height="36" /><rect x="184" y="28" width="18" height="52" />
+                  <rect x="216" y="38" width="18" height="42" /><rect x="248" y="22" width="18" height="58" />
+                  <rect x="280" y="30" width="18" height="50" />
+                </g>
+              </svg>
+              <div class="project__scan"></div>
             </div>
-            <h3 class="project__title">Supply Chain Performance &amp; Delay Risk Prediction</h3>
-            <p class="project__desc">
-              End-to-end DSS for trade shipments: tuned <strong>XGBoost</strong> predicts
-              eligibility / delay risk (<strong>86.9% accuracy</strong>,
-              <strong>ROC-AUC 0.96</strong>), explained with <strong>SHAP</strong>, and
-              surfaced through a KPI dashboard for non-technical teams.
-            </p>
-            <ul class="project__tech">
-              <li>XGBoost</li><li>SHAP</li><li>Power BI</li><li>Python</li>
-            </ul>
-            <a href="projects/supply-chain-analytics.html" class="project__cta project__cta--case">Read case study <span class="btn__arrow">→</span></a>
-            <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
+            <div class="project__body">
+              <div class="project__top">
+                <span class="project__folder">{ }</span>
+                <div class="project__links">
+                  <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+                </div>
+              </div>
+              <h3 class="project__title">Supply Chain Performance &amp; Delay Risk Prediction</h3>
+              <p class="project__desc">
+                End-to-end DSS for trade shipments: tuned <strong>XGBoost</strong> predicts
+                eligibility / delay risk (<strong>86.9% accuracy</strong>,
+                <strong>ROC-AUC 0.96</strong>), explained with <strong>SHAP</strong>, and
+                surfaced through a KPI dashboard for non-technical teams.
+              </p>
+              <ul class="project__tech">
+                <li>XGBoost</li><li>SHAP</li><li>Power BI</li><li>Python</li>
+              </ul>
+              <a href="projects/supply-chain-analytics.html" class="project__cta project__cta--case">Read case study <span class="btn__arrow">→</span></a>
+              <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
+            </div>
           </article>
 
           <article class="project accent-teal reveal" data-skills="python machine-learning data-visualization">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
-              </div>
+            <div class="project__banner" aria-hidden="true">
+              <svg class="project__chart project__chart--bars" viewBox="0 0 320 90" preserveAspectRatio="none">
+                <polyline class="project__chart-line" points="0,58 35,50 70,54 105,42 140,36 175,30 210,34 245,22 280,18 320,14" />
+                <g class="project__chart-bars">
+                  <rect x="20" y="55" width="22" height="25" /><rect x="54" y="42" width="22" height="38" />
+                  <rect x="88" y="48" width="22" height="32" /><rect x="122" y="30" width="22" height="50" />
+                  <rect x="156" y="36" width="22" height="44" /><rect x="190" y="24" width="22" height="56" />
+                  <rect x="224" y="28" width="22" height="52" /><rect x="258" y="18" width="22" height="62" />
+                </g>
+              </svg>
+              <div class="project__scan"></div>
             </div>
-            <h3 class="project__title">Obesity Level Classification Using ANN</h3>
-            <p class="project__desc">
-              Designed three ANN architectures (baseline, deep, and regularised) to
-              classify individuals into seven obesity categories. Applied encoding,
-              standardisation, dropout, and L2 regularisation — reaching
-              <strong>up to 95% test accuracy</strong> and analysing confusion matrices
-              and learning curves.
-            </p>
-            <ul class="project__tech">
-              <li>Python</li><li>TensorFlow / Keras</li><li>ANN / Deep Learning</li><li>Nov–Dec 2025</li>
-            </ul>
-            <a href="projects/obesity-ann.html" class="project__cta project__cta--case">Read case study <span class="btn__arrow">→</span></a>
-            <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
+            <div class="project__body">
+              <div class="project__top">
+                <span class="project__folder">{ }</span>
+                <div class="project__links">
+                  <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+                </div>
+              </div>
+              <h3 class="project__title">Obesity Level Classification Using ANN</h3>
+              <p class="project__desc">
+                Designed three ANN architectures (baseline, deep, and regularised) to
+                classify individuals into seven obesity categories. Applied encoding,
+                standardisation, dropout, and L2 regularisation — reaching
+                <strong>up to 95% test accuracy</strong> and analysing confusion matrices
+                and learning curves.
+              </p>
+              <ul class="project__tech">
+                <li>Python</li><li>TensorFlow / Keras</li><li>ANN / Deep Learning</li><li>Nov–Dec 2025</li>
+              </ul>
+              <a href="projects/obesity-ann.html" class="project__cta project__cta--case">Read case study <span class="btn__arrow">→</span></a>
+              <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
+            </div>
           </article>
         </div>
         <p class="projects-empty" id="projectsEmpty" hidden></p>
@@ -414,6 +424,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
