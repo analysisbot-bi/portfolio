@@ -210,6 +210,9 @@ img { max-width: 100%; }
 
 /* ===== Skills ===== */
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+.skills--compact { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+.skills--compact .skill-card { padding: 18px 16px; }
+.skills--compact .skill-card h3 { font-size: 0.95rem; margin-bottom: 10px; }
 .skill-card {
   --card-accent: var(--c-teal); --card-accent-2: var(--c-sky);
   position: relative; background: var(--surface); border: 1px solid var(--border);
@@ -324,6 +327,49 @@ img { max-width: 100%; }
   background:
     radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--card-accent, #2dd4bf) 26%, transparent), transparent 45%),
     radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--card-accent-2, #818cf8) 26%, transparent), transparent 45%);
+}
+.page-banner::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+  background: linear-gradient(110deg, transparent 30%, color-mix(in srgb, var(--card-accent, #2dd4bf) 18%, transparent) 50%, transparent 70%);
+  transform: translateX(-40%);
+}
+.page-banner.is-animated::before { animation: bannerGlow 5s ease-in-out infinite alternate; }
+.page-banner.is-animated::after { animation: bannerSweep 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-banner.is-animated h1 { animation: bannerTitleIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-banner.is-animated .page-banner__lead,
+.page-banner.is-animated .page-banner__meta,
+.page-banner.is-animated .kw-pills,
+.page-banner.is-animated .page-banner__back {
+  animation: bannerFadeUp 0.7s ease both;
+}
+.page-banner.is-animated .page-banner__meta { animation-delay: 0.12s; }
+.page-banner.is-animated .page-banner__lead { animation-delay: 0.2s; }
+.page-banner.is-animated .kw-pills { animation-delay: 0.3s; }
+@keyframes bannerGlow {
+  from { filter: saturate(1) brightness(1); transform: scale(1); }
+  to { filter: saturate(1.25) brightness(1.15); transform: scale(1.04); }
+}
+@keyframes bannerSweep {
+  0% { opacity: 0; transform: translateX(-45%); }
+  35% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(45%); }
+}
+@keyframes bannerTitleIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); letter-spacing: -0.5px; }
+  to { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -1.5px; }
+}
+@keyframes bannerFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-banner.is-animated::before,
+  .page-banner.is-animated::after,
+  .page-banner.is-animated h1,
+  .page-banner.is-animated .page-banner__lead,
+  .page-banner.is-animated .page-banner__meta,
+  .page-banner.is-animated .kw-pills,
+  .page-banner.is-animated .page-banner__back { animation: none; }
 }
 .page-banner__back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); margin-bottom: 24px; transition: color 0.2s, transform 0.2s; }
 .page-banner__back:hover { color: var(--c-teal); transform: translateX(-3px); }
@@ -442,6 +488,12 @@ img { max-width: 100%; }
   color: var(--c-teal); text-decoration: none;
 }
 .projects-more__all:hover { text-decoration: underline; }
+.projects-more--simple {
+  margin-top: 28px; padding: 18px 22px; text-align: center;
+  border-style: dashed;
+}
+.projects-more--simple p { margin: 0; color: var(--text-dim); }
+.projects-more--simple a { color: var(--c-teal); font-weight: 600; }
 
 /* ===== Chatbot widget ===== */
 .chat-fab {

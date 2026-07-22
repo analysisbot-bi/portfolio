@@ -173,7 +173,7 @@ if (form && status) {
 }
 
 // ===== Resume modal viewer =====
-// The résumé is shown as page images (assets/resume-page-*.png) so it displays
+// The resume is shown as page images (assets/resume-page-*.png) so it displays
 // reliably on every browser and device — unlike embedded PDFs, which many
 // browsers refuse to render inline. The Download / Open-in-new-tab buttons
 // still serve the real PDF.
@@ -203,9 +203,17 @@ if (resumeModal) {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && resumeModal.classList.contains("open")) closeResume();
   });
-  // Expose so the chatbot can open the résumé viewer.
+  // Expose so the chatbot can open the resume viewer.
   window.__openResume = openResume;
 }
+
+// ===== Case-study banner animation =====
+(() => {
+  const banner = document.querySelector(".page-banner");
+  if (!banner) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  requestAnimationFrame(() => banner.classList.add("is-animated"));
+})();
 
 // ===== Skill -> Projects filter =====
 const projectsGrid = document.getElementById("projectsGrid");
@@ -280,7 +288,7 @@ if (projectsGrid && skillTags.length) {
   const L = (hash, text) => `<a href="${base}index.html${hash}">${text}</a>`;
 
   const RESUME = onSubpage ? "../assets/resume.pdf" : "assets/resume.pdf";
-  // A clickable link that opens the in-page résumé viewer (falls back to the PDF).
+  // A clickable link that opens the in-page resume viewer (falls back to the PDF).
   const resumeLink = (label) =>
     `<a href="${RESUME}" target="_blank" rel="noopener" data-action="resume">${label}</a>`;
 
@@ -295,11 +303,11 @@ if (projectsGrid && skillTags.length) {
     { k: ["ann", "neural", "deep learning", "obesity", "tensorflow", "keras"],
       a: () => `Ah, the neural networks — a personal favourite of mine. For the Obesity Classification he engineered three ANN architectures in <b>TensorFlow/Keras</b> and achieved up to <b>95% test accuracy</b> with the regularised Deep ANN. Charts, confusion matrix and the full write-up await in the ${L("#projects", "Projects")} section.` },
     { k: ["random forest", "sla", "breach", "public health", "svr"],
-      a: () => `Quite. Beyond ensembles like Random Forest, he's built a <b>scikit-learn SLA-breach predictor</b> so support teams can prioritise at-risk tickets the moment they arrive — do open it from the ${L("#projects", "Projects")} section.` },
+      a: () => `His featured work centres on a <b>supply-chain DSS</b> and an <b>obesity ANN classifier</b>. Further models — including SLA-style predictors — live on his <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener">GitHub</a>.` },
     { k: ["power bi", "tableau", "dashboard", "supply chain", "visual", "bi ", "seaborn", "matplotlib", "shap", "xgboost"],
       a: () => `He's thoroughly at home with <b>Power BI and Tableau</b> (and Matplotlib/Seaborn for the finer details). His supply-chain DSS pairs <b>XGBoost + SHAP</b> (<b>86.9% accuracy</b>, ROC-AUC <b>0.96</b>) with a KPI dashboard — do peruse the ${L("#projects", "Projects")}.` },
     { k: ["big data", "data analysis", "analytics", "data scientist", "data analyst"],
-      a: () => `Precisely the roles he's after — <b>Data Analyst / Data Scientist</b>. His MSc specialises in data analysis and big data: cleaning, feature engineering and drawing genuine insight from sizeable datasets.` },
+      a: () => `Precisely the roles he's after — <b>Data Analyst</b>. His MSc specialises in data analysis and big data: cleaning, feature engineering and drawing genuine insight from sizeable datasets.` },
     { k: ["excel", "power query", "pivot"],
       a: () => `Indeed — <b>Excel</b> with Pivot Tables and Power Query is well within his repertoire, alongside the heavier analytics tooling.` },
     { k: ["forecast", "forecasting", "time series"],
@@ -311,13 +319,13 @@ if (projectsGrid && skillTags.length) {
     { k: ["blockchain"],
       a: () => `Quite the polymath — he completed a <b>Blockchain Specialisation on Coursera</b>. Curiosity is something of a habit with him.` },
     { k: ["certif", "course", "qualif", "aws", "google"],
-      a: () => `His certifications include <b>AWS Academy Cloud Operations</b>, <b>Oracle Database Foundations</b>, a <b>Blockchain Specialisation (Coursera)</b> and <b>Google Digital Marketing</b>. All catalogued on his ${resumeLink("résumé")}.` },
+      a: () => `His certifications include <b>AWS Academy Cloud Operations</b>, <b>Oracle Database Foundations</b>, a <b>Blockchain Specialisation (Coursera)</b> and <b>Google Digital Marketing</b>. All catalogued on his ${resumeLink("resume")}.` },
     { k: ["skill", "tech", "stack", "tool", "know", "language"],
-      a: () => `A well-stocked toolbox: <b>Python, SQL, R</b>; machine learning (ANN, Random Forest, SVM, scikit-learn); <b>Power BI, Tableau, Excel</b>; databases (MySQL, PostgreSQL, MongoDB); and Git, Figma, Matplotlib &amp; Seaborn. Do visit ${L("#skills", "Skills")} — click any skill to reveal the projects behind it.` },
+      a: () => `A focused toolbox: <b>Python, SQL, Machine Learning, Power BI, Data Visualisation and Business Operations</b>. Do visit ${L("#skills", "Skills")} — click any skill to reveal the projects behind it.` },
     { k: ["project", "work you", "portfolio", "built", "case study", "case studies"],
-      a: () => `Four featured pieces: a <b>supply-chain DSS</b> (XGBoost + SHAP), a <b>support analytics Power BI dashboard</b>, an <b>SLA-breach predictor</b>, and an <b>ANN obesity classifier</b> (~95% accuracy). More repos sit under “More on GitHub” in the ${L("#projects", "Projects")} section.` },
-    { k: ["experience", "job", "career", "worked", "operations", "mycaptain"],
-      a: () => `At <b>MyCaptain</b> (Business Operations Executive) he cut customer-support escalations by <b>20%</b> in three months, ran daily operations across <b>5 departments</b> at <b>98% on-time</b> delivery, and led leadership roles at E-Cell and CTech. A data mind with genuine business sense — see ${L("#experience", "Experience")}.` },
+      a: () => `Two featured case studies: a <b>supply-chain DSS</b> (XGBoost + SHAP, 86.9% accuracy) and an <b>ANN obesity classifier</b> (~95% accuracy). For further work, check his <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener">GitHub</a>.` },
+    { k: ["experience", "job", "career", "worked", "operations", "mycaptain", "financial"],
+      a: () => `At <b>MyCaptain</b> (Business Operations Executive) he used <b>data visualisation</b> to turn ops metrics into clear reports. As <b>Financial Center Lead</b> at CTECH he ran <b>data analysis</b> on budgets and expenses to support decisions. See ${L("#experience", "Experience")}.` },
     { k: ["achievement", "award", "leadership", "e-summit", "iit", " e-cell", "ecell", "nss"],
       a: () => `A decorated sort: <b>Semi-finalist at E-Summit 2023, IIT Bombay</b>, Senior Marketing Member at E-Cell SRM, Financial Lead at CTech Association, and an NSS community volunteer. Leadership runs through it.` },
     { k: ["education", "study", "studies", "degree", "university", "coventry", "srm", "msc", "btech", "cgpa", "grade"],
@@ -325,25 +333,25 @@ if (projectsGrid && skillTags.length) {
     { k: ["contact", "email", "reach", "get in touch", "phone", "number", "call"],
       a: () => `By all means. Email <a href="mailto:vickrammadhavan2002@gmail.com">vickrammadhavan2002@gmail.com</a>, telephone <b>+44 7883 278066</b>, the ${L("#contact", "Contact")} form, or <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener">LinkedIn</a>. He'll respond promptly.` },
     { k: ["hire", "recruit", "hiring", "available", "availability", "role", "notice", "why should", "why hire", "why you", "strength", "candidate", "fit"],
-      a: () => `An excellent question. Master Vickram pairs solid <b>data-science skills</b> (Python, ML, BI) with real <b>business impact</b> — he doesn't merely build models, he moves the metric. He's seeking a <b>Data Analyst / Data Scientist</b> post and is based in the UK. Shall I point you to his ${resumeLink("résumé")} or the ${L("#contact", "Contact")} form?` },
+      a: () => `An excellent question. Master Vickram pairs solid <b>data-analysis skills</b> (Python, ML, BI) with real <b>business impact</b> — he doesn't merely build models, he moves the metric. He's seeking a <b>Data Analyst</b> post and is based in the UK. Shall I point you to his ${resumeLink("resume")} or the ${L("#contact", "Contact")} form?` },
     { k: ["resume", "cv", "download", "curriculum"],
-      a: () => `Certainly — his résumé is right here: ${resumeLink("open the CV")} (or use the <b>Resume</b> button at the top). You may view it in-page and download it as you please.` },
+      a: () => `Certainly — his resume is right here: ${resumeLink("open the CV")} (or use the <b>Resume</b> button at the top). You may view it in-page and download it as you please.` },
     { k: ["linkedin", "social", "github"],
-      a: () => `Of course — <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>. Do connect.` },
+      a: () => `Of course — <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener">GitHub</a>. Do connect.` },
     { k: ["where", "location", "based", "live", "uk", "england", "relocate", "visa"],
       a: () => `He's based in <b>Coventry, England</b> — well placed for data roles across the UK.` },
     { k: ["who", "about", "yourself", "vickram", "tell me"],
-      a: () => `Vickram Madhavan: MSc Computer Science graduate, a <b>Data Analyst / Data Scientist</b> who turns messy data into decisions — with a business head, no less. And I? Merely the butler, keeping the estate in order. 🎩` },
+      a: () => `Vickram Madhavan: MSc Computer Science graduate, a <b>Data Analyst</b> who turns messy data into decisions — with a business head, no less. And I? Merely the butler, keeping the estate in order. 🎩` },
     { k: ["thank", "cheers", "ta ", "nice one", "brilliant", "great", "lovely"],
       a: () => `A pleasure entirely. Is there anything further I might assist with?` },
     { k: ["bye", "goodbye", "see ya", "cya", "later", "farewell"],
       a: () => `Very good — until next time. Do give Master Vickram a shout; you'll not regret it. 🎩` },
     { k: ["help", "what can you", "options", "menu", "topics"],
-      a: () => `I'd be delighted. Ask about his <b>projects</b>, <b>skills</b> (Python, SQL, ML, Power BI…), <b>experience</b>, <b>education</b>, <b>certifications</b>, <b>achievements</b>, or how to <b>hire / contact</b> him. You may also request his ${resumeLink("résumé")}.` },
+      a: () => `I'd be delighted. Ask about his <b>projects</b>, <b>skills</b> (Python, SQL, ML, Power BI…), <b>experience</b>, <b>education</b>, <b>certifications</b>, <b>achievements</b>, or how to <b>hire / contact</b> him. You may also request his ${resumeLink("resume")}.` },
   ];
 
   const fallback = () =>
-    `I'm afraid that one rather escapes me. Might I suggest asking about his <b>projects</b>, <b>Python</b>, <b>skills</b>, <b>experience</b>, <b>certifications</b>, or how to <b>get in touch</b>? Or take a look at his ${resumeLink("résumé")}.`;
+    `I'm afraid that one rather escapes me. Might I suggest asking about his <b>projects</b>, <b>Python</b>, <b>skills</b>, <b>experience</b>, <b>certifications</b>, or how to <b>get in touch</b>? Or take a look at his ${resumeLink("resume")}.`;
 
   const answer = (raw) => {
     const q = " " + raw.toLowerCase() + " ";
@@ -376,7 +384,7 @@ if (projectsGrid && skillTags.length) {
       <span class="chat-chip" data-q="Why should I hire him?">Why hire him?</span>
       <span class="chat-chip" data-q="What are his skills?">Skills</span>
       <span class="chat-chip" data-q="Show me his certifications">Certifications</span>
-      <span class="chat-chip" data-q="Can I see his resume?">Résumé</span>
+      <span class="chat-chip" data-q="Can I see his resume?">Resume</span>
       <span class="chat-chip" data-q="How do I contact him?">Contact</span>
     </div>
     <form class="chat-input" id="chatForm">
@@ -448,7 +456,7 @@ if (projectsGrid && skillTags.length) {
     });
   });
 
-  // Résumé links inside chat: open the in-page viewer if it exists on this page.
+  // Resume links inside chat: open the in-page viewer if it exists on this page.
   body.addEventListener("click", (e) => {
     const link = e.target.closest('[data-action="resume"]');
     if (link && typeof window.__openResume === "function") {
