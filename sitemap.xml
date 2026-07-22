@@ -11,11 +11,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://analysisbot-bi.github.io/portfolio/projects/dog-bite-prediction.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://analysisbot-bi.github.io/portfolio/projects/supply-chain-analytics.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
