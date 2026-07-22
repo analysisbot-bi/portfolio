@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <!-- Animated background -->
@@ -174,8 +174,8 @@
                 <span class="stat__label">% Best Model Accuracy</span>
               </div>
               <div class="stat">
-                <span class="stat__num" data-target="8">0</span>
-                <span class="stat__label">Data &amp; Analytics Projects</span>
+                <span class="stat__num" data-target="4">0</span>
+                <span class="stat__label">Featured Projects</span>
               </div>
               <div class="stat">
                 <span class="stat__num" data-target="2">0</span>
@@ -269,56 +269,15 @@
     <section class="section" id="projects" data-cursor-bubble="Fancy a peek at his case studies? 🔍">
       <div class="container">
         <div class="section__head reveal">
-          <span class="eyebrow">Case Studies &amp; GitHub Projects · Analytics, ML, SQL &amp; BI</span>
+          <span class="eyebrow">Internship Focus · 4 Strongest Projects</span>
           <h2 class="section__title"><span class="section__num">03.</span> Featured <span class="grad-word">Projects</span></h2>
+          <p class="section__hint">The four pieces of work I'd put in front of a hiring manager first. Everything else lives on GitHub.</p>
         </div>
         <div class="projects-filter" id="projectsFilter" hidden>
           <span class="projects-filter__text" id="projectsFilterText"></span>
           <button class="projects-filter__clear" id="projectsFilterClear" type="button">Clear filter ✕</button>
         </div>
         <div class="projects" id="projectsGrid">
-          <article class="project accent-teal reveal" data-skills="python deep-learning scikit-learn feature-engineering model-evaluation data-cleaning">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
-              </div>
-            </div>
-            <h3 class="project__title">Obesity Level Classification Using ANN</h3>
-            <p class="project__desc">
-              Designed three ANN architectures (baseline, deep, and regularised) to
-              classify individuals into seven obesity categories. Applied encoding,
-              standardisation, dropout, and L2 regularisation — reaching
-              <strong>up to 95% test accuracy</strong> and analysing confusion matrices
-              and learning curves.
-            </p>
-            <ul class="project__tech">
-              <li>Python</li><li>TensorFlow / Keras</li><li>ANN / Deep Learning</li><li>Nov–Dec 2025</li>
-            </ul>
-            <a href="projects/obesity-ann.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
-            <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
-          </article>
-
-          <article class="project accent-indigo reveal" data-skills="python random-forest big-data feature-engineering data-cleaning predictive-analytics data-visualization">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener" aria-label="GitHub profile">Code</a>
-              </div>
-            </div>
-            <h3 class="project__title">Dog Bite Incident Prediction — ML for Big Data</h3>
-            <p class="project__desc">
-              Processed and analysed <strong>11,688 NYC DOHMH</strong> dog-bite records;
-              engineered temporal and demographic features. Built and evaluated four ML
-              models — Random Forest achieved the highest accuracy for predicting bite
-              frequency, supporting public-health risk assessment.
-            </p>
-            <ul class="project__tech">
-              <li>Python</li><li>Random Forest</li><li>Big Data</li><li>Aug–Sep 2025</li>
-            </ul>
-            <a href="projects/dog-bite-prediction.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
-          </article>
-
           <article class="project accent-purple reveal" data-skills="python power-bi predictive-analytics data-visualization dashboards forecasting sql business-operations reporting feature-engineering machine-learning scikit-learn">
             <div class="project__top">
               <span class="project__folder">{ }</span>
@@ -360,7 +319,7 @@
             <a href="https://github.com/analysisbot-bi/support-analytics-dashboard" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
           </article>
 
-          <article class="project accent-amber reveal" data-skills="python machine-learning scikit-learn model-evaluation predictive-analytics feature-engineering">
+          <article class="project accent-amber reveal" data-skills="python machine-learning scikit-learn model-evaluation predictive-analytics feature-engineering nlp">
             <div class="project__top">
               <span class="project__folder">{ }</span>
               <div class="project__links">
@@ -379,83 +338,63 @@
             <a href="https://github.com/analysisbot-bi/sla-breach-prediction" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
           </article>
 
-          <article class="project accent-teal reveal" data-skills="python machine-learning scikit-learn nlp feature-engineering model-evaluation">
+          <article class="project accent-teal reveal" data-skills="python deep-learning scikit-learn feature-engineering model-evaluation data-cleaning">
             <div class="project__top">
               <span class="project__folder">{ }</span>
               <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/ticket-text-classification-nlp" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
+                <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
               </div>
             </div>
-            <h3 class="project__title">Support Ticket NLP Auto-Triage</h3>
+            <h3 class="project__title">Obesity Level Classification Using ANN</h3>
             <p class="project__desc">
-              Natural-language processing that automatically classifies incoming
-              support-ticket text into categories using <strong>TF-IDF</strong> features
-              and scikit-learn — cutting manual triage and speeding up ticket routing.
+              Designed three ANN architectures (baseline, deep, and regularised) to
+              classify individuals into seven obesity categories. Applied encoding,
+              standardisation, dropout, and L2 regularisation — reaching
+              <strong>up to 95% test accuracy</strong> and analysing confusion matrices
+              and learning curves.
             </p>
             <ul class="project__tech">
-              <li>Python</li><li>NLP</li><li>TF-IDF</li><li>scikit-learn</li>
+              <li>Python</li><li>TensorFlow / Keras</li><li>ANN / Deep Learning</li><li>Nov–Dec 2025</li>
             </ul>
-            <a href="https://github.com/analysisbot-bi/ticket-text-classification-nlp" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
-          </article>
-
-          <article class="project accent-indigo reveal" data-skills="sql data-cleaning reporting business-operations data-visualization">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/sql-business-insights" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
-              </div>
-            </div>
-            <h3 class="project__title">SQL Business Insights</h3>
-            <p class="project__desc">
-              A set of <strong>20 analytical SQL queries</strong> — window functions,
-              CTEs and aggregations — run over customer-support data in SQLite to answer
-              real business questions and surface operational insights.
-            </p>
-            <ul class="project__tech">
-              <li>SQL</li><li>SQLite</li><li>Window Functions</li><li>CTEs</li>
-            </ul>
-            <a href="https://github.com/analysisbot-bi/sql-business-insights" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
-          </article>
-
-          <article class="project accent-purple reveal" data-skills="business-operations reporting data-cleaning">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://github.com/analysisbot-bi/ba-case-study-support-analytics" target="_blank" rel="noopener" aria-label="GitHub repo">Code</a>
-              </div>
-            </div>
-            <h3 class="project__title">Business Analyst Case Study — Support Analytics</h3>
-            <p class="project__desc">
-              A complete Business Analyst deliverable suite for a customer-support
-              analytics initiative — business case, <strong>BRD</strong>, requirements
-              traceability matrix (RTM), RAID log and end-to-end process flows.
-            </p>
-            <ul class="project__tech">
-              <li>Business Analysis</li><li>BRD</li><li>RTM / RAID</li><li>Process Flows</li>
-            </ul>
-            <a href="https://github.com/analysisbot-bi/ba-case-study-support-analytics" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
-          </article>
-
-          <article class="project accent-pink reveal" data-skills="forecasting data-visualization predictive-analytics deep-learning">
-            <div class="project__top">
-              <span class="project__folder">{ }</span>
-              <div class="project__links">
-                <a href="https://www.linkedin.com/in/vickram-madhavan-746344226/" target="_blank" rel="noopener" aria-label="LinkedIn">More</a>
-              </div>
-            </div>
-            <h3 class="project__title">More on the way</h3>
-            <p class="project__desc">
-              I'm continually building new data-science, analytics and BI projects. The
-              full, up-to-date collection lives on my GitHub — explore the code, or
-              connect on LinkedIn to follow along.
-            </p>
-            <ul class="project__tech">
-              <li>Machine Learning</li><li>Analytics</li><li>Data Engineering</li>
-            </ul>
-            <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener" class="project__cta">Explore my GitHub <span class="btn__arrow">→</span></a>
+            <a href="projects/obesity-ann.html" class="project__cta">Read case study <span class="btn__arrow">→</span></a>
+            <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener" class="project__cta">View on GitHub <span class="btn__arrow">→</span></a>
           </article>
         </div>
         <p class="projects-empty" id="projectsEmpty" hidden></p>
+
+        <div class="projects-more reveal">
+          <div class="projects-more__head">
+            <h3>More on GitHub</h3>
+            <p>Additional work for anyone who wants to dig deeper — kept here so the featured set stays focused.</p>
+          </div>
+          <ul class="projects-more__list">
+            <li>
+              <a href="https://github.com/analysisbot-bi/ticket-text-classification-nlp" target="_blank" rel="noopener">
+                <span class="projects-more__title">Support Ticket NLP Auto-Triage</span>
+                <span class="projects-more__meta">TF-IDF · scikit-learn · NLP</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/analysisbot-bi/sql-business-insights" target="_blank" rel="noopener">
+                <span class="projects-more__title">SQL Business Insights</span>
+                <span class="projects-more__meta">20 queries · CTEs · window functions</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/analysisbot-bi/ba-case-study-support-analytics" target="_blank" rel="noopener">
+                <span class="projects-more__title">BA Case Study — Support Analytics</span>
+                <span class="projects-more__meta">BRD · RTM · RAID · process flows</span>
+              </a>
+            </li>
+            <li>
+              <a href="projects/dog-bite-prediction.html">
+                <span class="projects-more__title">Dog Bite Incident Prediction</span>
+                <span class="projects-more__meta">11,688 records · Random Forest · case study</span>
+              </a>
+            </li>
+          </ul>
+          <a href="https://github.com/analysisbot-bi" target="_blank" rel="noopener" class="projects-more__all">See all repositories on GitHub <span class="btn__arrow">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -581,6 +520,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
