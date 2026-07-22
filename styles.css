@@ -275,8 +275,8 @@ body::after {
 .skill-card h3::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, var(--card-accent), var(--card-accent-2)); }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags span { font-family: var(--mono); font-size: 0.76rem; color: var(--card-accent); background: color-mix(in srgb, var(--card-accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--card-accent) 30%, transparent); padding: 5px 11px; border-radius: 20px; }
-.accent-teal   { --card-accent: #2dd4bf; --card-accent-2: #38bdf8; }
-.accent-sky    { --card-accent: #38bdf8; --card-accent-2: #818cf8; }
+.accent-teal   { --card-accent: var(--c-teal); --card-accent-2: var(--c-sky); }
+.accent-sky    { --card-accent: var(--c-sky); --card-accent-2: var(--c-indigo); }
 .accent-indigo { --card-accent: var(--c-indigo); --card-accent-2: var(--c-purple); }
 .accent-purple { --card-accent: var(--c-purple); --card-accent-2: var(--c-magenta); }
 .accent-pink   { --card-accent: var(--c-pink); --card-accent-2: var(--c-amber); }
