@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Case study: Supply Chain Performance Analytics & Delay Risk Prediction — a Power BI + web decision-support system with predictive analytics by Vickram Madhavan." />
+  <meta name="description" content="Case study: Supply Chain Performance Analytics and Delay Risk Prediction. Power BI + web decision-support system with predictive analytics by Vickram Madhavan." />
   <meta name="keywords" content="Power BI, Predictive Analytics, Supply Chain, Delay Risk, Dashboards, Decision Support, Data Visualization, Forecasting, Business Intelligence" />
-  <title>Supply Chain Analytics &amp; Delay Risk — Vickram Madhavan</title>
+  <title>Supply Chain Analytics &amp; Delay Risk | Vickram Madhavan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=16" />
+  <link rel="stylesheet" href="../styles.css?v=17" />
 </head>
 <body class="accent-purple">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -35,7 +35,7 @@
   </header>
 
   <main>
-    <section class="page-banner" data-cursor-bubble="Fancy seeing delays predicted before they happen? ⚡">
+    <section class="page-banner" data-cursor-bubble="Supply chain delay risk case study">
       <div class="container">
         <a href="../index.html#projects" class="page-banner__back reveal">← Back to projects</a>
         <div class="page-banner__meta reveal">
@@ -45,9 +45,9 @@
         </div>
         <h1 class="reveal">Supply Chain Performance Analytics &amp; Delay-Risk Prediction</h1>
         <p class="page-banner__lead reveal">
-          A web-based <strong>decision-support system</strong> wired to <strong>Power BI</strong>
-          that watches supply-chain performance in real time and flags delay risk
-          <em>before</em> it becomes a disruption — moving teams from firefighting to foresight.
+          A web <strong>decision-support system</strong> connected to <strong>Power BI</strong>.
+          It tracks shipment performance and scores delay risk so teams can act before a
+          late delivery shows up in a monthly report.
         </p>
         <div class="kw-pills reveal">
           <span>XGBoost</span><span>SHAP</span><span>Power BI</span>
@@ -62,42 +62,37 @@
         <div class="case__body">
           <h2 class="reveal">The problem</h2>
           <p class="reveal">
-            Supply chains fail quietly. By the time a delay is visible in a monthly report, the
-            damage — missed deliveries, idle inventory, unhappy customers — is already done. The
-            challenge was to give teams <strong>real-time visibility</strong> and an
-            <strong>early warning</strong> for delays, in a format anyone could use without a
-            data-science background.
+            Delays often show up too late. By the time they hit a monthly report, you already
+            have missed deliveries, stuck inventory, and unhappy customers. I wanted a tool
+            that gives <strong>live visibility</strong> and an <strong>early warning</strong>
+            on delay risk, without needing a data science background to use it.
           </p>
 
           <h2 class="reveal">My approach</h2>
           <p class="reveal">
-            I built an end-to-end pipeline that turns raw trade/customs shipment data into
-            an early-warning decision-support layer:
+            I built a pipeline from raw trade/customs shipment data to a risk score and KPI layer:
           </p>
           <ul class="case__points">
-            <li class="reveal"><strong>Preprocessing</strong> — log-transforms on heavily skewed value/mass features so models aren't dominated by outliers.</li>
-            <li class="reveal"><strong>Feature engineering</strong> — HS commodity chapter, origin/destination encodings, trade-route features and usage flags.</li>
-            <li class="reveal"><strong>Tuned XGBoost</strong> classifier for eligibility / delay-risk prediction, evaluated on ~44k held-out shipments.</li>
-            <li class="reveal"><strong>SHAP interpretability</strong> — beeswarm + waterfall plots so every prediction can be explained to a stakeholder.</li>
-            <li class="reveal"><strong>KPI dashboard</strong> — eligibility mix, high-risk origins/commodities, and ML risk-score distribution for BI consumers.</li>
+            <li class="reveal"><strong>Preprocessing:</strong> log-transforms on skewed value/mass features so outliers don't dominate the model.</li>
+            <li class="reveal"><strong>Feature engineering:</strong> HS commodity chapter, origin/destination encodings, trade-route features, and usage flags.</li>
+            <li class="reveal"><strong>Tuned XGBoost</strong> classifier for eligibility / delay-risk prediction, tested on ~44k held-out shipments.</li>
+            <li class="reveal"><strong>SHAP:</strong> beeswarm and waterfall plots so predictions can be explained.</li>
+            <li class="reveal"><strong>KPI dashboard:</strong> eligibility mix, high-risk origins/commodities, and ML risk-score distribution.</li>
           </ul>
 
-          <h2 class="reveal">What I found</h2>
+          <h2 class="reveal">Results</h2>
           <p class="reveal">
-            The tuned XGBoost model reached <strong>86.9% accuracy</strong> with a
-            <strong>ROC-AUC of 0.96</strong> — strong separation between high- and low-risk
-            shipments. SHAP showed that usage flags, country of origin, trade route and
-            HS commodity chapter were the biggest drivers. The KPI layer also surfaced that
-            roughly <strong>36% of shipments</strong> fall into the not-eligible band, with
-            clear concentration in a handful of commodity chapters and origins.
+            Tuned XGBoost hit <strong>86.9% accuracy</strong> and <strong>ROC-AUC 0.96</strong>
+            on the test set. SHAP showed usage flags, country of origin, trade route, and
+            HS commodity chapter as the top drivers. About <strong>36% of shipments</strong>
+            landed in the not-eligible band, mostly in a few commodity chapters and origins.
           </p>
 
-          <h2 class="reveal">What I took away</h2>
+          <h2 class="reveal">Takeaways</h2>
           <p class="reveal">
-            This project sits right where my two worlds meet — <strong>data science</strong> and
-            <strong>business operations</strong>. Building it reinforced that the best analytics
-            work isn't the most complex model; it's the one that lands in front of a
-            decision-maker at the right moment, in a form they instantly trust.
+            The useful part was not just the model score. It was getting a risk signal into a
+            dashboard form that ops people can read. Good analytics is the model plus the
+            delivery format.
           </p>
         </div>
 
@@ -138,21 +133,21 @@
         <div class="case-charts reveal">
           <h2>Results &amp; visualisations</h2>
           <p class="case-charts__intro">
-            Charts pulled from the project notebooks (XGBoost + SHAP + KPI layer).
+            Charts from the project notebooks (XGBoost + SHAP + KPI layer).
             <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener">View the code on GitHub →</a>
           </p>
           <div class="case-charts__grid">
             <figure class="case-chart case-chart--wide">
               <img src="../assets/supply-chain/01_kpi_dashboard.png" alt="Supply chain KPI dashboard with eligibility and delay-risk charts" loading="lazy" />
-              <figcaption>KPI dashboard — eligibility mix, top origins, high-risk commodities, and ML delay-risk score distribution.</figcaption>
+              <figcaption>KPI dashboard: eligibility mix, top origins, high-risk commodities, and ML delay-risk score distribution.</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/supply-chain/02_shap_beeswarm.png" alt="SHAP beeswarm plot of feature impact" loading="lazy" />
-              <figcaption>SHAP beeswarm — which features push predictions up or down (XGBoost).</figcaption>
+              <figcaption>SHAP beeswarm: which features push predictions up or down (XGBoost).</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/supply-chain/03_shap_waterfall.png" alt="SHAP waterfall explaining a single prediction" loading="lazy" />
-              <figcaption>SHAP waterfall — a single “not eligible” prediction explained feature-by-feature.</figcaption>
+              <figcaption>SHAP waterfall: one “not eligible” prediction explained feature by feature.</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/supply-chain/04_correlation_heatmap.png" alt="Feature correlation heatmap" loading="lazy" />
@@ -160,7 +155,7 @@
             </figure>
             <figure class="case-chart">
               <img src="../assets/supply-chain/05_log_transform.png" alt="Log transformation of skewed features" loading="lazy" />
-              <figcaption>Log transforms on skewed value/mass features — critical before modelling.</figcaption>
+              <figcaption>Log transforms on skewed value/mass features before modelling.</figcaption>
             </figure>
           </div>
         </div>
@@ -169,7 +164,7 @@
       <div class="container">
         <div class="case__nav">
           <a href="obesity-ann.html" class="btn btn--ghost btn--sm">← Previous case study</a>
-          <a href="../index.html#contact" class="btn btn--primary btn--sm">Let's talk about this <span class="btn__arrow">→</span></a>
+          <a href="../index.html#contact" class="btn btn--primary btn--sm">Contact <span class="btn__arrow">→</span></a>
           <a href="../index.html#projects" class="btn btn--ghost btn--sm">All projects <span class="btn__arrow">→</span></a>
         </div>
       </div>
@@ -183,6 +178,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=16"></script>
+  <script src="../script.js?v=17"></script>
 </body>
 </html>

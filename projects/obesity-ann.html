@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Case study: Obesity Level Classification using Artificial Neural Networks (ANN) — deep learning, regularisation, feature engineering, and model evaluation by Vickram Madhavan." />
+  <meta name="description" content="Case study: Obesity Level Classification using Artificial Neural Networks (ANN). Deep learning, regularisation, feature engineering, and model evaluation by Vickram Madhavan." />
   <meta name="keywords" content="Artificial Neural Networks, ANN, Deep Learning, Classification, Regularisation, Dropout, L2, Feature Engineering, Python, Machine Learning" />
-  <title>Obesity Classification with ANN — Vickram Madhavan</title>
+  <title>Obesity Classification with ANN | Vickram Madhavan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=16" />
+  <link rel="stylesheet" href="../styles.css?v=17" />
 </head>
 <body class="accent-teal">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -35,20 +35,19 @@
   </header>
 
   <main>
-    <!-- Banner header -->
-    <section class="page-banner" data-cursor-bubble="Curious how he hit 95% accuracy? 🧠">
+    <section class="page-banner" data-cursor-bubble="Obesity ANN case study">
       <div class="container">
         <a href="../index.html#projects" class="page-banner__back reveal">← Back to projects</a>
         <div class="page-banner__meta reveal">
           <span>Domain: <b>Health Analytics</b></span>
           <span>Type: <b>Deep Learning</b></span>
-          <span>Timeline: <b>Nov – Dec 2025</b></span>
+          <span>Timeline: <b>Nov-Dec 2025</b></span>
         </div>
         <h1 class="reveal">Obesity Level Classification Using Artificial Neural Networks</h1>
         <p class="page-banner__lead reveal">
-          A deep-learning study that predicts a person's obesity category from lifestyle and
-          body-metric data — comparing three neural-network architectures to find the sweet
-          spot between <strong>accuracy</strong> and <strong>generalisation</strong>.
+          Multi-class classification project: predict obesity category from lifestyle and
+          body-metric data. I compared three ANN architectures and measured
+          <strong>accuracy</strong> vs <strong>generalisation</strong>.
         </p>
         <div class="kw-pills reveal">
           <span>ANN</span><span>Deep Learning</span><span>Multi-class Classification</span>
@@ -58,57 +57,48 @@
       </div>
     </section>
 
-    <!-- Case body -->
     <section class="case">
       <div class="container case__grid">
         <div class="case__body">
           <h2 class="reveal">The problem</h2>
           <p class="reveal">
-            Obesity is rarely about a single number — it's the product of diet, activity,
-            family history, and daily habits all tangled together. The goal here was to take
-            that messy, multi-factor picture and train a model that could reliably sort a
-            person into one of <strong>seven obesity categories</strong>, from underweight
-            through to the different classes of obesity.
+            Obesity category depends on more than one feature: diet, activity, family history,
+            and daily habits. The task was to classify a person into one of
+            <strong>seven obesity categories</strong>, from underweight through the obesity classes.
           </p>
 
           <h2 class="reveal">My approach</h2>
           <p class="reveal">
-            I treated this as a supervised <strong>multi-class classification</strong> problem
-            and leaned on <strong>artificial neural networks</strong>. Before any modelling, I
-            put real care into the data:
+            Supervised <strong>multi-class classification</strong> with
+            <strong>artificial neural networks</strong>. Prep steps first:
           </p>
           <ul class="case__points">
-            <li class="reveal"><strong>Encoding</strong> of categorical lifestyle features so the network could read them cleanly.</li>
-            <li class="reveal"><strong>Standardisation</strong> (StandardScaler) of the features to keep gradients well-behaved during training.</li>
-            <li class="reveal">A careful train/test split so every accuracy number reflected genuinely unseen data.</li>
+            <li class="reveal"><strong>Encoding</strong> categorical lifestyle features.</li>
+            <li class="reveal"><strong>Standardisation</strong> (StandardScaler) so training stays stable.</li>
+            <li class="reveal">Train/test split so accuracy is measured on unseen data.</li>
           </ul>
           <p class="reveal">
-            Then I built and compared <strong>three ANN architectures</strong> to understand
-            the trade-offs rather than just chasing one lucky run:
+            Then I trained and compared <strong>three ANN architectures</strong>:
           </p>
           <ul class="case__points">
-            <li class="reveal"><strong>Baseline ANN</strong> — a simple network to establish an honest starting point.</li>
-            <li class="reveal"><strong>Deep ANN</strong> — more layers and capacity to capture non-linear patterns.</li>
-            <li class="reveal"><strong>Regularised ANN</strong> — the deep model plus <strong>dropout</strong> and <strong>L2 regularisation</strong> to fight overfitting.</li>
+            <li class="reveal"><strong>Baseline ANN:</strong> small network as a starting point.</li>
+            <li class="reveal"><strong>Deep ANN:</strong> more layers for non-linear patterns.</li>
+            <li class="reveal"><strong>Regularised ANN:</strong> deep model plus <strong>dropout</strong> and <strong>L2</strong> to reduce overfitting.</li>
           </ul>
 
-          <h2 class="reveal">What I found</h2>
+          <h2 class="reveal">Results</h2>
           <p class="reveal">
-            The <strong>regularised Deep ANN</strong> (dropout + L2) was the clear winner,
-            reaching <strong>~95% test accuracy</strong> — a solid jump over the
-            <strong>~87% baseline</strong>. More importantly, it generalised: the gap between
-            training and validation performance stayed tight. I dug into
-            <strong>confusion matrices</strong> to see exactly which categories got confused
-            with their neighbours, and read the <strong>learning curves</strong> to confirm the
-            model was learning signal, not noise.
+            The <strong>regularised Deep ANN</strong> did best at
+            <strong>~95% test accuracy</strong>, up from the <strong>~87% baseline</strong>.
+            Train and validation curves stayed close. I used
+            <strong>confusion matrices</strong> to see which classes got mixed up, and
+            <strong>learning curves</strong> to check the model was learning real signal.
           </p>
 
-          <h2 class="reveal">What I took away</h2>
+          <h2 class="reveal">Takeaways</h2>
           <p class="reveal">
-            Raw depth isn't the answer — <strong>disciplined regularisation</strong> is what
-            turned a decent model into a dependable one. Just as valuable was the habit of
-            interpreting results (confusion matrices, learning curves) instead of trusting a
-            single accuracy figure. That mindset carries into every project I build.
+            Adding layers alone was not enough. Dropout and L2 made the model more reliable.
+            Also: always read confusion matrices and curves, not just one accuracy number.
           </p>
         </div>
 
@@ -149,21 +139,21 @@
         <div class="case-charts reveal">
           <h2>Results &amp; visualisations</h2>
           <p class="case-charts__intro">
-            Generated by training all three architectures on the full dataset.
+            From training all three architectures on the full dataset.
             <a href="https://github.com/analysisbot-bi/obesity-level-classification-ann" target="_blank" rel="noopener">View the code &amp; notebook on GitHub →</a>
           </p>
           <div class="case-charts__grid">
             <figure class="case-chart">
               <img src="../assets/obesity/04_model_comparison.png" alt="Test accuracy by ANN architecture" loading="lazy" />
-              <figcaption>Test accuracy by architecture — the regularised Deep ANN leads at ~95%.</figcaption>
+              <figcaption>Test accuracy by architecture. Regularised Deep ANN leads at ~95%.</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/obesity/03_training_curves.png" alt="Training and validation loss and accuracy curves" loading="lazy" />
-              <figcaption>Loss &amp; accuracy curves — training and validation stay close, a sign of healthy generalisation.</figcaption>
+              <figcaption>Loss and accuracy curves. Training and validation stay close.</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/obesity/05_confusion_matrix.png" alt="Confusion matrix of the best model" loading="lazy" />
-              <figcaption>Confusion matrix — a strong diagonal; the few errors sit between adjacent weight bands.</figcaption>
+              <figcaption>Confusion matrix. Strong diagonal; most errors are between adjacent weight bands.</figcaption>
             </figure>
             <figure class="case-chart">
               <img src="../assets/obesity/02_pca.png" alt="2D PCA projection of the features" loading="lazy" />
@@ -171,7 +161,7 @@
             </figure>
             <figure class="case-chart case-chart--wide">
               <img src="../assets/obesity/01_class_distribution.png" alt="Distribution of obesity classes" loading="lazy" />
-              <figcaption>Class distribution across the 2,111 records — a well-balanced target.</figcaption>
+              <figcaption>Class distribution across 2,111 records.</figcaption>
             </figure>
           </div>
         </div>
@@ -180,7 +170,7 @@
       <div class="container">
         <div class="case__nav">
           <a href="../index.html#projects" class="btn btn--ghost btn--sm">← All projects</a>
-          <a href="../index.html#contact" class="btn btn--primary btn--sm">Let's talk about this <span class="btn__arrow">→</span></a>
+          <a href="../index.html#contact" class="btn btn--primary btn--sm">Contact <span class="btn__arrow">→</span></a>
           <a href="supply-chain-analytics.html" class="btn btn--ghost btn--sm">Next case study <span class="btn__arrow">→</span></a>
         </div>
       </div>
@@ -194,6 +184,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=16"></script>
+  <script src="../script.js?v=17"></script>
 </body>
 </html>
