@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Case study: Supply Chain Performance Analytics and Delay Risk Prediction. Power BI + web decision-support system with predictive analytics by Vickram Madhavan." />
   <title>Supply Chain Analytics &amp; Delay Risk | Vickram Madhavan</title>
-  <link rel="stylesheet" href="../styles.css?v=18" />
+  <link rel="stylesheet" href="../styles.css?v=19" />
 </head>
 <body>
   <header class="nav" id="nav">
@@ -35,9 +35,8 @@
         </div>
         <h1>Supply Chain Performance Analytics &amp; Delay-Risk Prediction</h1>
         <p class="page-banner__lead">
-          A web <strong>decision-support system</strong> connected to <strong>Power BI</strong>.
-          It tracks shipment performance and scores delay risk so teams can act before a
-          late delivery shows up in a monthly report.
+          Small web app + Power BI for shipment performance. Scores delay risk so ops
+          can react before a late delivery only shows up in a monthly report.
         </p>
         <div class="kw-pills">
           <span>XGBoost</span><span>SHAP</span><span>Power BI</span>
@@ -51,37 +50,34 @@
         <div class="case__body">
           <h2>The problem</h2>
           <p>
-            Delays often show up too late. By the time they hit a monthly report, you already
-            have missed deliveries, stuck inventory, and unhappy customers. I wanted a tool
-            that gives <strong>live visibility</strong> and an <strong>early warning</strong>
-            on delay risk, without needing a data science background to use it.
+            Delays often show up too late. Once they're in a monthly report you've already
+            got missed deliveries and stuck stock. I wanted something that flags risk earlier
+            and doesn't need a data science background to open.
           </p>
 
-          <h2>My approach</h2>
+          <h2>What I did</h2>
           <p>
-            I built a pipeline from raw trade/customs shipment data to a risk score and KPI layer:
+            Pipeline from raw trade/customs data to a risk score and a KPI view:
           </p>
           <ul class="case__points">
-            <li><strong>Preprocessing:</strong> log-transforms on skewed value/mass features so outliers don't dominate the model.</li>
-            <li><strong>Feature engineering:</strong> HS commodity chapter, origin/destination encodings, trade-route features, and usage flags.</li>
-            <li><strong>Tuned XGBoost</strong> classifier for eligibility / delay-risk prediction, tested on ~44k held-out shipments.</li>
-            <li><strong>SHAP:</strong> beeswarm and waterfall plots so predictions can be explained.</li>
-            <li><strong>KPI dashboard:</strong> eligibility mix, high-risk origins/commodities, and ML risk-score distribution.</li>
+            <li><strong>Preprocessing:</strong> log-transforms on skewed value/mass fields.</li>
+            <li><strong>Features:</strong> HS chapter, origin/destination encodings, route flags, usage flags.</li>
+            <li><strong>Model:</strong> tuned XGBoost on ~44k held-out shipments.</li>
+            <li><strong>SHAP:</strong> beeswarm + waterfall so a prediction can be explained.</li>
+            <li><strong>Dashboard:</strong> eligibility mix, high-risk origins/commodities, risk-score spread.</li>
           </ul>
 
           <h2>Results</h2>
           <p>
-            Tuned XGBoost hit <strong>86.9% accuracy</strong> and <strong>ROC-AUC 0.96</strong>
-            on the test set. SHAP showed usage flags, country of origin, trade route, and
-            HS commodity chapter as the top drivers. About <strong>36% of shipments</strong>
-            landed in the not-eligible band, mostly in a few commodity chapters and origins.
+            XGBoost landed at <strong>86.9%</strong> accuracy and <strong>ROC-AUC 0.96</strong>.
+            SHAP pointed at usage flags, origin, route, and HS chapter. Roughly
+            <strong>36%</strong> of shipments sat in the not-eligible band.
           </p>
 
-          <h2>Takeaways</h2>
+          <h2>Notes</h2>
           <p>
-            The useful part was not just the model score. It was getting a risk signal into a
-            dashboard form that ops people can read. Good analytics is the model plus the
-            delivery format.
+            The model score mattered, but the dashboard mattered more. If ops can't read it,
+            it's just a notebook.
           </p>
         </div>
 
@@ -158,11 +154,11 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <p>Hand-coded with HTML, CSS &amp; JavaScript by Vickram Madhavan</p>
+      <p>Built by Vickram Madhavan · HTML / CSS / JS</p>
       <p class="footer__small">© <span id="year"></span> · Case study</p>
     </div>
   </footer>
 
-  <script src="../script.js?v=18"></script>
+  <script src="../script.js?v=19"></script>
 </body>
 </html>

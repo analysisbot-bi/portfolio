@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Case study: Obesity Level Classification using Artificial Neural Networks (ANN). Deep learning, regularisation, feature engineering, and model evaluation by Vickram Madhavan." />
   <title>Obesity Classification with ANN | Vickram Madhavan</title>
-  <link rel="stylesheet" href="../styles.css?v=18" />
+  <link rel="stylesheet" href="../styles.css?v=19" />
 </head>
 <body>
   <header class="nav" id="nav">
@@ -35,9 +35,8 @@
         </div>
         <h1>Obesity Level Classification Using Artificial Neural Networks</h1>
         <p class="page-banner__lead">
-          Multi-class classification project: predict obesity category from lifestyle and
-          body-metric data. I compared three ANN architectures and measured
-          <strong>accuracy</strong> vs <strong>generalisation</strong>.
+          Predict obesity category from lifestyle / body-metric data. I trained three ANN
+          setups and compared accuracy vs how well they generalised.
         </p>
         <div class="kw-pills">
           <span>ANN</span><span>Deep Learning</span><span>Multi-class Classification</span>
@@ -51,43 +50,35 @@
         <div class="case__body">
           <h2>The problem</h2>
           <p>
-            Obesity category depends on more than one feature: diet, activity, family history,
-            and daily habits. The task was to classify a person into one of
-            <strong>seven obesity categories</strong>, from underweight through the obesity classes.
+            Category depends on several things (diet, activity, history, habits), not one
+            number. Goal: put someone into one of <strong>seven</strong> classes.
           </p>
 
-          <h2>My approach</h2>
-          <p>
-            Supervised <strong>multi-class classification</strong> with
-            <strong>artificial neural networks</strong>. Prep steps first:
-          </p>
+          <h2>What I did</h2>
+          <p>Standard supervised classification with neural nets. Prep first:</p>
           <ul class="case__points">
-            <li><strong>Encoding</strong> categorical lifestyle features.</li>
-            <li><strong>Standardisation</strong> (StandardScaler) so training stays stable.</li>
-            <li>Train/test split so accuracy is measured on unseen data.</li>
+            <li>Encode categorical lifestyle fields.</li>
+            <li>Scale features with StandardScaler.</li>
+            <li>Train/test split so scores are on unseen rows.</li>
           </ul>
-          <p>
-            Then I trained and compared <strong>three ANN architectures</strong>:
-          </p>
+          <p>Then three networks:</p>
           <ul class="case__points">
-            <li><strong>Baseline ANN:</strong> small network as a starting point.</li>
-            <li><strong>Deep ANN:</strong> more layers for non-linear patterns.</li>
-            <li><strong>Regularised ANN:</strong> deep model plus <strong>dropout</strong> and <strong>L2</strong> to reduce overfitting.</li>
+            <li><strong>Baseline:</strong> small net.</li>
+            <li><strong>Deep:</strong> more layers.</li>
+            <li><strong>Regularised:</strong> deep + dropout + L2.</li>
           </ul>
 
           <h2>Results</h2>
           <p>
-            The <strong>regularised Deep ANN</strong> did best at
-            <strong>~95% test accuracy</strong>, up from the <strong>~87% baseline</strong>.
-            Train and validation curves stayed close. I used
-            <strong>confusion matrices</strong> to see which classes got mixed up, and
-            <strong>learning curves</strong> to check the model was learning real signal.
+            Regularised deep model won at about <strong>95%</strong> test accuracy
+            (baseline was ~<strong>87%</strong>). Train/val curves stayed close. Confusion
+            matrix + learning curves were more useful than staring at one accuracy figure.
           </p>
 
-          <h2>Takeaways</h2>
+          <h2>Notes</h2>
           <p>
-            Adding layers alone was not enough. Dropout and L2 made the model more reliable.
-            Also: always read confusion matrices and curves, not just one accuracy number.
+            Extra layers alone weren't enough. Dropout and L2 helped more. And yeah, always
+            look at the confusion matrix.
           </p>
         </div>
 
@@ -164,11 +155,11 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <p>Hand-coded with HTML, CSS &amp; JavaScript by Vickram Madhavan</p>
+      <p>Built by Vickram Madhavan · HTML / CSS / JS</p>
       <p class="footer__small">© <span id="year"></span> · Case study</p>
     </div>
   </footer>
 
-  <script src="../script.js?v=18"></script>
+  <script src="../script.js?v=19"></script>
 </body>
 </html>

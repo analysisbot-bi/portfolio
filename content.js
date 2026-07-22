@@ -15,20 +15,20 @@ window.SITE = {
 
   projects: [
     {
-      title: "Supply Chain Performance & Delay Risk Prediction",
+      title: "Supply Chain Delay Risk",
       skills: ["python", "sql", "machine-learning", "power-bi", "data-visualization", "business-operations"],
       desc:
-        "Built a decision-support system for trade shipments. Tuned <strong>XGBoost</strong> predicts eligibility / delay risk <strong>(86.9% accuracy, ROC-AUC 0.96)</strong>. Used <strong>SHAP</strong> for explanations and a KPI dashboard for the results.",
-      tech: "XGBoost, SHAP, Power BI, Python",
+        "Shipment delay / eligibility model with <strong>XGBoost</strong> (<strong>86.9%</strong> accuracy, ROC-AUC <strong>0.96</strong>). Added <strong>SHAP</strong> plots and a KPI dashboard so non-tech people could read the risk scores.",
+      tech: "Python · XGBoost · SHAP · Power BI",
       caseUrl: "projects/supply-chain-analytics.html",
       githubUrl: "https://github.com/analysisbot-bi/supply--chain-dss",
     },
     {
-      title: "Obesity Level Classification Using ANN",
+      title: "Obesity Level Classifier (ANN)",
       skills: ["python", "machine-learning", "data-visualization"],
       desc:
-        "Compared three ANN architectures (baseline, deep, regularised) for 7-class obesity prediction. Used encoding, standardisation, dropout, and L2 regularisation. Best model hit <strong>~95% test accuracy</strong>. Checked results with confusion matrices and learning curves.",
-      tech: "Python, TensorFlow / Keras, ANN / Deep Learning, Nov-Dec 2025",
+        "Tried three neural nets (baseline, deep, regularised) for 7 obesity classes. Best run was about <strong>95%</strong> test accuracy after dropout + L2. Checked confusion matrices and learning curves so I wasn't just trusting one number.",
+      tech: "Python · Keras · scikit-learn · Nov-Dec 2025",
       caseUrl: "projects/obesity-ann.html",
       githubUrl: "https://github.com/analysisbot-bi/obesity-level-classification-ann",
     },
