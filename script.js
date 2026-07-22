@@ -153,6 +153,7 @@ if (form && status) {
               name,
               email,
               message,
+              _replyto: email,
               _subject: `Portfolio enquiry from ${name}`,
               _template: "table",
             }),
@@ -162,7 +163,7 @@ if (form && status) {
         const ok = data && (data.success === true || data.success === "true");
         if (!(res.ok && ok)) throw new Error("formsubmit failed");
       }
-      setStatus(`Thanks, ${name}! Your message has been sent — I'll be in touch soon.`, "ok");
+      setStatus(`✓ Thanks, ${name}! Your message has been sent — I'll be in touch soon.`, "ok sent");
       form.reset();
     } catch (err) {
       // Any delivery failure → fall back to the visitor's email app.
