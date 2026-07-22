@@ -384,6 +384,19 @@ img { max-width: 100%; }
 .resume-modal__body { flex: 1; position: relative; background: #12172080; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .resume-modal__pages { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 18px; }
 .resume-modal__page { width: 100%; max-width: 720px; height: auto; display: block; border-radius: 8px; box-shadow: 0 10px 34px rgba(0, 0, 0, 0.5); background: #fff; }
+
+/* ===== Case study charts ===== */
+.case-charts { margin-top: 46px; }
+.case-charts h2 { margin-bottom: 8px; }
+.case-charts__intro { color: var(--text-dim); margin-bottom: 24px; }
+.case-charts__intro a { color: var(--c-teal); }
+.case-charts__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.case-chart { margin: 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
+.case-chart:hover { transform: translateY(-3px); border-color: var(--c-teal); }
+.case-chart img { width: 100%; height: auto; display: block; }
+.case-chart figcaption { padding: 12px 16px; font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+.case-chart--wide { grid-column: 1 / -1; }
+@media (max-width: 720px) { .case-charts__grid { grid-template-columns: 1fr; } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: none; } }
 
