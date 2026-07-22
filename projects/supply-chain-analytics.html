@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=9" />
+  <link rel="stylesheet" href="../styles.css?v=10" />
 </head>
 <body class="accent-purple">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -50,9 +50,9 @@
           <em>before</em> it becomes a disruption — moving teams from firefighting to foresight.
         </p>
         <div class="kw-pills reveal">
-          <span>Power BI</span><span>Predictive Analytics</span><span>Dashboards</span>
-          <span>Delay Risk</span><span>Decision Support</span><span>Forecasting</span>
-          <span>Business Intelligence</span><span>Web App</span>
+          <span>XGBoost</span><span>SHAP</span><span>Power BI</span>
+          <span>Predictive Analytics</span><span>Delay Risk</span><span>Decision Support</span>
+          <span>Python</span><span>Streamlit</span>
         </div>
       </div>
     </section>
@@ -71,24 +71,25 @@
 
           <h2 class="reveal">My approach</h2>
           <p class="reveal">
-            I designed an end-to-end system that combines <strong>predictive analytics</strong>
-            with an accessible <strong>web-based interface</strong> and live
-            <strong>Power BI dashboards</strong>:
+            I built an end-to-end pipeline that turns raw trade/customs shipment data into
+            an early-warning decision-support layer:
           </p>
           <ul class="case__points">
-            <li class="reveal"><strong>Real-time monitoring</strong> of key supply-chain performance indicators.</li>
-            <li class="reveal"><strong>Predictive analytics</strong> to identify potential delays before they happen.</li>
-            <li class="reveal"><strong>Interactive Power BI dashboards</strong> that make the numbers legible at a glance.</li>
-            <li class="reveal">A <strong>web platform</strong> so insights are shareable and teams can collaborate across functions.</li>
+            <li class="reveal"><strong>Preprocessing</strong> — log-transforms on heavily skewed value/mass features so models aren't dominated by outliers.</li>
+            <li class="reveal"><strong>Feature engineering</strong> — HS commodity chapter, origin/destination encodings, trade-route features and usage flags.</li>
+            <li class="reveal"><strong>Tuned XGBoost</strong> classifier for eligibility / delay-risk prediction, evaluated on ~44k held-out shipments.</li>
+            <li class="reveal"><strong>SHAP interpretability</strong> — beeswarm + waterfall plots so every prediction can be explained to a stakeholder.</li>
+            <li class="reveal"><strong>KPI dashboard</strong> — eligibility mix, high-risk origins/commodities, and ML risk-score distribution for BI consumers.</li>
           </ul>
 
-          <h2 class="reveal">The impact</h2>
+          <h2 class="reveal">What I found</h2>
           <p class="reveal">
-            The system was built to drive concrete outcomes: <strong>improved operational
-            efficiency</strong>, <strong>fewer delays and disruptions</strong>, and
-            <strong>better visibility</strong> across the entire chain. Most of all, it enables
-            <strong>smarter, faster decisions</strong> — shifting an organisation from reactive
-            problem-solving to proactive strategy.
+            The tuned XGBoost model reached <strong>86.9% accuracy</strong> with a
+            <strong>ROC-AUC of 0.96</strong> — strong separation between high- and low-risk
+            shipments. SHAP showed that usage flags, country of origin, trade route and
+            HS commodity chapter were the biggest drivers. The KPI layer also surfaced that
+            roughly <strong>36% of shipments</strong> fall into the not-eligible band, with
+            clear concentration in a handful of commodity chapters and origins.
           </p>
 
           <h2 class="reveal">What I took away</h2>
@@ -102,35 +103,67 @@
 
         <aside class="case__aside">
           <div class="case__panel reveal">
-            <h3>Designed To Deliver</h3>
+            <h3>Headline Result</h3>
             <div class="case__result">
-              <span class="case__result-num">Real-time</span>
-              <span class="case__result-label">performance monitoring</span>
+              <span class="case__result-num">86.9%</span>
+              <span class="case__result-label">test accuracy (XGBoost)</span>
             </div>
             <div class="case__result">
-              <span class="case__result-num">Proactive</span>
-              <span class="case__result-label">delay-risk early warning</span>
+              <span class="case__result-num">0.96</span>
+              <span class="case__result-label">ROC-AUC</span>
             </div>
             <div class="case__result">
-              <span class="case__result-num">Cross-team</span>
-              <span class="case__result-label">visibility &amp; collaboration</span>
+              <span class="case__result-num">~44k</span>
+              <span class="case__result-label">shipments in the test set</span>
             </div>
           </div>
           <div class="case__panel reveal">
             <h3>Tech Stack</h3>
             <div class="tags">
-              <span>Power BI</span><span>Python</span><span>SQL</span>
-              <span>Predictive Models</span><span>Web Dashboard</span>
+              <span>Python</span><span>XGBoost</span><span>SHAP</span>
+              <span>scikit-learn</span><span>Power BI</span><span>Streamlit</span>
             </div>
           </div>
           <div class="case__panel reveal">
             <h3>My Role</h3>
             <div class="tags">
-              <span>System Design</span><span>Analytics</span>
-              <span>Dashboarding</span><span>Data Modelling</span>
+              <span>Feature Engineering</span><span>Modelling</span>
+              <span>Interpretability</span><span>Dashboarding</span>
             </div>
           </div>
         </aside>
+      </div>
+
+      <div class="container">
+        <div class="case-charts reveal">
+          <h2>Results &amp; visualisations</h2>
+          <p class="case-charts__intro">
+            Charts pulled from the project notebooks (XGBoost + SHAP + KPI layer).
+            <a href="https://github.com/analysisbot-bi/supply--chain-dss" target="_blank" rel="noopener">View the code on GitHub →</a>
+          </p>
+          <div class="case-charts__grid">
+            <figure class="case-chart case-chart--wide">
+              <img src="../assets/supply-chain/01_kpi_dashboard.png" alt="Supply chain KPI dashboard with eligibility and delay-risk charts" loading="lazy" />
+              <figcaption>KPI dashboard — eligibility mix, top origins, high-risk commodities, and ML delay-risk score distribution.</figcaption>
+            </figure>
+            <figure class="case-chart">
+              <img src="../assets/supply-chain/02_shap_beeswarm.png" alt="SHAP beeswarm plot of feature impact" loading="lazy" />
+              <figcaption>SHAP beeswarm — which features push predictions up or down (XGBoost).</figcaption>
+            </figure>
+            <figure class="case-chart">
+              <img src="../assets/supply-chain/03_shap_waterfall.png" alt="SHAP waterfall explaining a single prediction" loading="lazy" />
+              <figcaption>SHAP waterfall — a single “not eligible” prediction explained feature-by-feature.</figcaption>
+            </figure>
+            <figure class="case-chart">
+              <img src="../assets/supply-chain/04_correlation_heatmap.png" alt="Feature correlation heatmap" loading="lazy" />
+              <figcaption>Feature correlation heatmap after log transforms and encodings.</figcaption>
+            </figure>
+            <figure class="case-chart">
+              <img src="../assets/supply-chain/05_log_transform.png" alt="Log transformation of skewed features" loading="lazy" />
+              <figcaption>Log transforms on skewed value/mass features — critical before modelling.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
 
       <div class="container">
@@ -150,6 +183,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=9"></script>
+  <script src="../script.js?v=10"></script>
 </body>
 </html>
