@@ -1,29 +1,32 @@
 /* =========================================================
-   Site behaviour: nav, skills filter, projects render,
-   contact form, resume modal. Content lives in content.js.
+   Site behaviour: skills filter, projects, resume modal,
+   copy email. Content lives in content.js.
    ========================================================= */
 
 (function () {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ----- Nav (mobile) ----- */
-  const navToggle = document.getElementById("navToggle");
-  const navLinks = document.getElementById("navLinks");
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(open));
-    });
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+  /* ----- Copy email ----- */
+  const copyBtn = document.getElementById("copyEmail");
+  const emailText = document.getElementById("emailText");
+  const copyToast = document.getElementById("copyToast");
+  if (copyBtn && emailText) {
+    copyBtn.addEventListener("click", async () => {
+      const value = emailText.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(value);
+        if (copyToast) {
+          copyToast.textContent = "Copied";
+          setTimeout(() => { copyToast.textContent = ""; }, 1500);
+        }
+      } catch (err) {
+        if (copyToast) copyToast.textContent = "Copy failed";
+      }
     });
   }
 
-  /* ----- Render skills + projects from content.js ----- */
+  /* ----- Render skills + projects ----- */
   const site = window.SITE || { skills: [], projects: [] };
   const skillsRoot = document.getElementById("skillsList");
   const projectsGrid = document.getElementById("projectsGrid");
@@ -75,7 +78,8 @@
         a.href = p.githubUrl;
         a.target = "_blank";
         a.rel = "noopener";
-        a.textContent = "GitHub";
+        a.innerHTML =
+          "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.03-.02-2.02-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.3 0 .32.22.7.83.58C20.56 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z\"/></svg> GitHub";
         links.appendChild(a);
       }
       projectsGrid.appendChild(article);
@@ -91,7 +95,7 @@
     if (filterBar && filterText) {
       if (activeSkill) {
         filterBar.hidden = false;
-        filterText.textContent = "Showing projects with: " + label;
+        filterText.textContent = "Filtered by: " + label;
       } else {
         filterBar.hidden = true;
         filterText.textContent = "";
@@ -113,7 +117,7 @@
     if (projectsEmpty) {
       projectsEmpty.hidden = shown > 0;
       if (shown === 0) {
-        projectsEmpty.textContent = "No featured projects for that skill. See GitHub for more.";
+        projectsEmpty.textContent = "No projects for that skill. Check GitHub for more.";
       }
     }
   }
@@ -129,88 +133,6 @@
 
   renderSkills();
   renderProjects();
-
-  /* ----- Contact form ----- */
-  const CONTACT_EMAIL = "vickrammadhavan2002@gmail.com";
-  const WEB3FORMS_ACCESS_KEY = "";
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
-
-  if (form && status) {
-    const setStatus = (msg, kind) => {
-      status.textContent = msg;
-      status.className = "form-status " + kind;
-    };
-
-    const sendViaMailto = (name, email, message) => {
-      const subject = encodeURIComponent("Portfolio enquiry from " + name);
-      const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message);
-      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
-      setStatus("Thanks, " + name + ". Your email app should open with the message ready.", "ok");
-      form.reset();
-    };
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      if (!name || !email || !message) {
-        setStatus("Please fill in all fields.", "err");
-        return;
-      }
-      if (!emailOk) {
-        setStatus("Please enter a valid email address.", "err");
-        return;
-      }
-
-      setStatus("Sending…", "ok");
-      try {
-        let res, data;
-        if (WEB3FORMS_ACCESS_KEY) {
-          res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({
-              access_key: WEB3FORMS_ACCESS_KEY,
-              subject: "Portfolio enquiry from " + name,
-              from_name: name,
-              name,
-              email,
-              message,
-            }),
-          });
-          data = await res.json();
-          if (!(res.ok && data.success)) throw new Error("web3forms failed");
-        } else {
-          res = await fetch(
-            "https://formsubmit.co/ajax/" + encodeURIComponent(CONTACT_EMAIL),
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json", Accept: "application/json" },
-              body: JSON.stringify({
-                name,
-                email,
-                message,
-                _replyto: email,
-                _subject: "Portfolio enquiry from " + name,
-                _template: "table",
-              }),
-            }
-          );
-          data = await res.json();
-          const ok = data && (data.success === true || data.success === "true");
-          if (!(res.ok && ok)) throw new Error("formsubmit failed");
-        }
-        setStatus("Thanks, " + name + ". Your message was sent.", "ok");
-        form.reset();
-      } catch (err) {
-        sendViaMailto(name, email, message);
-      }
-    });
-  }
 
   /* ----- Resume modal ----- */
   const resumeTriggers = document.querySelectorAll(".js-resume-open");
